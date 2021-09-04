@@ -14,6 +14,7 @@ const Shop = () => {
   const getProducts = async () => {
     const response = await fetch(url + "/shop");
     setProducts(await response.json());
+    FindByDistinctCategory();
   };
 
   const priceAsc = async () => {
@@ -24,6 +25,24 @@ const Shop = () => {
     const response = await fetch(url + "/orderByPriceDesc");
     setProducts(await response.json());
   }
+  const FindByCategory = async (category) => {
+    
+    const response = await fetch(url + `/category/${category}`);
+    setProducts(await response.json());
+ 
+  }
+  const FindByDistinctCategory = async (category) => {
+    
+    const response = await fetch(url + `/category/distinctCategory`);
+    settotalcategories(await response.json());
+  }
+
+  
+  const [totalcategories, settotalcategories] = useState("")
+    
+ const categories=["refrigerator", "Food Processor", "fan", "Geyser","AC","Burner"];
+
+
 
 
   useEffect(() => {
@@ -53,17 +72,27 @@ const Shop = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-
             <Dropdown className="dropdown-price">
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Category
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-2">
-                  <button className="btn" type="button" onClick={priceAsc}>
-                    Ascending
+                {categories.map((category) => {
+                  return(
+                    <Dropdown.Item href="#/action-2">
+                  <button className="btn" type="button" onClick={()=>FindByCategory(`${category}`)}>
+                    {category}
                   </button>
                 </Dropdown.Item>
+                  )
+                })
+                  
+                }
+                {/* <Dropdown.Item href="#/action-2">
+                  <button className="btn" type="button" onClick={()=>FindByCategory("refrigerator")}>
+                    refrigerator
+                  </button>
+                </Dropdown.Item> */}
               </Dropdown.Menu>
             </Dropdown>
             {products.map((product) => {
