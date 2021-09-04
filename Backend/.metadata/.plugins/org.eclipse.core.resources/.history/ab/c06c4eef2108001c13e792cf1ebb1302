@@ -1,0 +1,15 @@
+package com.sunbeam.daos;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sunbeam.entities.User;
+
+public interface UsersDao extends JpaRepository<User,Integer>{
+	User findByEmail(String email);
+	Optional<User> findByResetToken(String reset_token);
+	
+	Users findByFirstName(String first_name);
+    //void add(Users user);
+}

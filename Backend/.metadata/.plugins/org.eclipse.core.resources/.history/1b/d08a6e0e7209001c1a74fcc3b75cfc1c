@@ -1,0 +1,13 @@
+package com.sunbeam.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "products")
+@Data
+public class Category {
+	
+}

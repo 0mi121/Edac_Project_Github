@@ -1,0 +1,11 @@
+package com.sunbeam.services;
+
+import java.util.List;
+
+import com.sunbeam.entities.Products;
+
+public interface ProductService{
+	List<Products> findByCategory(String category);
+	List<Products> findByBrand(String brand);
+	List<Products> findByPname(String pname);
+}

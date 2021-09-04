@@ -1,0 +1,24 @@
+package com.sunbeam.services;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.sunbeam.entities.Products;
+
+public interface ProductService{
+	List<Products> findAll();
+	List<Products> findByCategory(String category);
+	List<Products> findByBrand(String brand);
+	List<Products> findByOrderByPriceAsc();
+	List<Products> findByOrderByPriceDesc();
+	Products save(Products products);
+	List<Products> findProductLikeName(String name);
+	@Modifying
+	@Query("delete from products p where p.pname=:pname")
+	void deleteProductsByPname(@Param("pname") String pname);
+	void deleteByProductId(Integer id);
+	int deleteProductsByPname(String name);
+}

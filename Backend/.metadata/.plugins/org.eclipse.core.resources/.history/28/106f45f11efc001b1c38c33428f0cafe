@@ -1,0 +1,79 @@
+package com.sunbeam.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.sunbeam.CustomResponse;
+import com.sunbeam.entities.Users;
+import com.sunbeam.services.UserService;
+
+
+@Controller
+public class UserRestController {
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private CustomResponse response;
+	
+	@GetMapping("/users/{id}")
+	public @ResponseBody Users findById(@PathVariable("id") int id) {
+		Users user = userService.findById(id);
+		return user;
+	}
+	
+	@GetMapping("/users/email/{email}")
+	public ResponseEntity<Users> findByEmail(@PathVariable("email") String email) {
+		Users cust = userService.findByEmail(email);
+		if(cust == null)
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		return ResponseEntity.ok(cust);
+	}
+	
+	@PostMapping("/login")
+	public CustomResponse login(@RequestParam String email, @RequestParam String password) {
+		Users user = null;
+		try {
+			user = userService.authenticate(email, password);
+		} catch (Exception e) {
+			response.setStatus("error");
+			e.printStackTrace();
+		}
+		
+		response.setStatus("success");
+		response.setData(user);
+		return response;
+		
+	}
+	
+	@PostMapping("/addUser")
+	public CustomResponse signup(@RequestBody Users us) {
+		Users user = null;
+		try {
+			user = userService.save(us);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.setStatus("error");
+		}
+		
+		response.setStatus("success");
+		response.setData(user);
+		return response;
+	}
+	
+	@GetMapping("/users")
+	public ResponseEntity<List<Users>> findAll() {
+		List<Users> list = userService.findAll();
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+}

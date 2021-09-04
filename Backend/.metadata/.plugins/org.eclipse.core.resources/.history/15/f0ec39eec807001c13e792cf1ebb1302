@@ -1,0 +1,96 @@
+package com.sunbeam.controllers;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sunbeam.dtos.UserDto;
+import com.sunbeam.entities.User;
+import com.sunbeam.exception.UnauthorizedException;
+import com.sunbeam.model.Credentials;
+import com.sunbeam.services.UserService;
+
+@CrossOrigin(origins = "http://localhost:3000",allowCredentials = "true")
+@RestController
+public class UserRestController {
+	@Autowired
+	private UserService userService;
+	
+	//Show all users
+	@GetMapping("/users")
+	public ResponseEntity<List<User>> findAll() {
+		List<User> list = userService.findAll();
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+	
+	//find by id
+	@GetMapping("/users/{id}")
+	public ResponseEntity<?> findById(@PathVariable("id") int id) {
+		User user = userService.findById(id);
+		return ResponseEntity.ok(UserDto.fromEntity(user));
+	}
+	
+	//find by email
+	@GetMapping("/users/email/{email}")
+	public ResponseEntity<User> findByEmail(@PathVariable("email") String email) {
+		User user = userService.findByEmail(email);
+		if(user == null)
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		return ResponseEntity.ok(user);
+	}
+	
+	//sign up
+	@PostMapping("/register")
+    public ResponseEntity<String> signUp(@RequestBody User user) {
+        // Encrypt the password
+        User checkIfExists = userService.findByEmail(user.getEmail());
+        System.out.println(user.toString());
+        if (checkIfExists != null) {
+            return new ResponseEntity<>("User already exists", HttpStatus.BAD_REQUEST);
+        }
+        userService.save(user);
+        return new ResponseEntity<>("User added", HttpStatus.OK);
+    }
+	
+	//login
+	@PostMapping(path = "/login")
+    public Object login(@RequestBody Credentials credentials, HttpServletResponse response) throws UnauthorizedException, IOException {
+        User loggedUser = null;
+
+        if (credentials != null && credentials.getEmail() != null && credentials.getPassword() != null) {
+            loggedUser = userService.login(credentials.getEmail(), credentials.getPassword());
+            //response.sendRedirect("/shop");
+        }
+        if(loggedUser == null) {
+            //throw new UnauthorizedException("Invalid username/password");
+        	return new ResponseEntity<>("Invalid username/password", HttpStatus.BAD_REQUEST);
+        }
+        return loggedUser;
+    }
+	
+	@PostMapping(path = "/logout")
+    public Object logout(@RequestBody Credentials credentials, HttpServletResponse response) throws UnauthorizedException, IOException {
+        User loggedUser = null;
+
+        if (credentials != null && credentials.getEmail() != null && credentials.getPassword() != null) {
+            loggedUser = userService.login(credentials.getEmail(), credentials.getPassword());
+            //response.sendRedirect("/shop");
+        }
+        if(loggedUser == null) {
+            //throw new UnauthorizedException("Invalid username/password");
+        	return new ResponseEntity<>("Invalid username/password", HttpStatus.BAD_REQUEST);
+        }
+        return loggedUser;
+    }	
+}

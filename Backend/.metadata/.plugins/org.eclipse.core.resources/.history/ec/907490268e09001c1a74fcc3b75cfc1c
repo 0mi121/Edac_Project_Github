@@ -1,0 +1,60 @@
+package com.sunbeam.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.sunbeam.daos.ProductsDao;
+import com.sunbeam.entities.Products;
+
+@Transactional
+@Service
+public class ProductServiceImpl implements ProductService {
+
+	@Autowired
+	private ProductsDao productsDao;
+	
+	@Override
+	public List<Products> findByCategory(String category) {
+		return productsDao.findByCategory(category);
+	}
+
+	@Override
+	public List<Products> findByBrand(String brand) {
+		return productsDao.findByBrand(brand);
+	}
+
+	@Override
+	public List<Products> findByPname(String pname) {
+		return productsDao.findByPname(pname);
+	}
+
+	@Override
+	public List<Products> findByOrderByPriceAsc() {
+		return productsDao.findByOrderByPriceAsc();
+	}
+
+	@Override
+	public List<Products> findByOrderByPriceDesc() {
+		// TODO Auto-generated method stub
+		return productsDao.findByOrderByPriceDesc();
+	}
+
+	@Override
+	public Products save(Products products) {
+		return productsDao.save(products);
+	}
+
+	@Override
+	public List<Products> findByPnameContainingIgnoreCase(String name) {
+		return productsDao.findByPnameContainingIgnoreCase(name);
+	}
+
+	@Override
+	public void deleteProductsByPname(String pname) {
+		productsDao.deleteByPname(pname);
+	}
+
+}

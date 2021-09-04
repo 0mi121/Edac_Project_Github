@@ -1,0 +1,14 @@
+package com.sunbeam.services;
+
+import java.util.List;
+
+import com.sunbeam.entities.Users;
+import com.sunbeam.exception.BadRequestException;
+
+public interface UserService {
+	Users findById(int id);
+	Users findByEmail(String email);
+	Users save(Users user);
+	Users authenticate(String email, String password);
+	List<Users> findAll();
+}

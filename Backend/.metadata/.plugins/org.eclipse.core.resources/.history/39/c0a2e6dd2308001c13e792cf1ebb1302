@@ -1,0 +1,12 @@
+package com.sunbeam.services;
+
+import org.springframework.mail.SimpleMailMessage;
+
+public class EmailServiceImpl implements EmailService {
+
+	@Override
+	public void sendEmail(SimpleMailMessage email) {
+		
+	}
+
+}

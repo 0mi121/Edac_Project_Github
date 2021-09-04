@@ -1,0 +1,20 @@
+package com.sunbeam.daos;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.sunbeam.entities.User;
+
+public interface UsersDao extends JpaRepository<User,Integer>{
+	User findByEmail(String email);
+	//Users findByName(String name);
+    //void add(Users user);
+
+	@Transactional
+	@Modifying(clearAutomatically = true)
+	@Query("update User a set password=:password where a.email=:email")
+	public void changePassword(@Param("password") String password, @Param("email") String email);
+}

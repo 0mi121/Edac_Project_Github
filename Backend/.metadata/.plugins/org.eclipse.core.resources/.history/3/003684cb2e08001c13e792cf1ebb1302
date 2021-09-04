@@ -1,0 +1,84 @@
+package com.sunbeam.services;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.sunbeam.daos.UsersDao;
+import com.sunbeam.entities.User;
+
+@Transactional
+@Service
+public class UserServiceImpl implements UserService{
+
+	private static final long EXPIRE_TOKEN_AFTER_MINUTES = 30;
+
+	@Autowired
+	private UsersDao userDao;
+	
+	@Override
+	public User findById(int id) {
+		Optional<User> user = userDao.findById(id);
+		return user.orElse(null);
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		return userDao.findByEmail(email);
+	}
+
+	@Override
+	public User save(User user) {
+		return userDao.save(user);
+	}
+	
+	@Override
+	public User authenticate(String email, String password) {
+		User user = findByEmail(email);
+		if (user != null && password.equals(user.getPassword())) {
+			return user;
+		}
+		return null;
+	}
+
+	@Override
+	public List<User> findAll() {
+		return userDao.findAll();
+	}
+
+	@Override
+	public User login(String email, String password) {
+        User user = userDao.findByEmail(email);
+
+        	//if (!passwordEncoder.matches(password, user.getPassword())) {
+        	if(user != null && password.equals(user.getPassword())) {
+                return user;
+            } else {
+            	return null;
+            }
+
+    }
+	
+	public String forgotPassword(String email) {
+
+		Optional<User> userOptional = Optional
+				.ofNullable(userDao.findByEmail(email));
+
+		if (!userOptional.isPresent()) {
+			return "Invalid email id.";
+		}
+
+		User user = userOptional.get();
+		user.setToken(generateToken());
+		user.setTokenCreationDate(LocalDateTime.now());
+
+		user = userDao.save(user);
+
+		return user.getToken();
+	}
+	
+}

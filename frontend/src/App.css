@@ -1,0 +1,68 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 500 ;
+  font-family: 'Besley', serif;
+  color: white;
+}
+
+.page-name{
+    color: black;
+	text-align: center;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+a:hover{
+  color: #2acfec!important;
+  text-decoration: none;
+}
+    
+
+ 
+
+ .grad-color {background-image: linear-gradient(to right, #ED4264 0%, #3c96ca 51%, #ED4264  100%)}
+.grad-color {
+   transition: 0.5s;
+   font-weight: 500;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+ }
+
+ .grad-color:hover {
+   background-position: right center;
+   color : #fff;
+   text-decoration: none;
+ } 
+ 
+
+ 
+/* body {
+  background-image: url("https://media.gettyimages.com/photos/backlit-shopping-cart-basket-business-retail-ecommerce-shop-wagon-picture-id157511941?s=2048x2048");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ } */
+
+ /* body {
+	 background: linear-gradient(-45deg, #f8cef18f, #fdc0dfa6, #afdcec9f, #82e6cf55);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh; 
+} */
+
+
+/* @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} */
+
+/*#fb5c42 0%, #f07a19  51%, rgb(87, 87, 231)  100%*/

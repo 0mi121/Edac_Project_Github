@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="gym_management_backend">
+        <property name="context-root" value="gym_management_backend"/>
+        <property name="java-output-path" value="/gym_management_backend/build/classes"/>
+    </wb-module>
+</project-modules>

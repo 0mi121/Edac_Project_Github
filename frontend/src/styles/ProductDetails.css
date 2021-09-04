@@ -1,0 +1,88 @@
+.product h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Besley', serif;
+    font-weight: bold;
+    color: black !important;
+  }
+
+.MuiRating-decimal{
+  font-size: 30px;
+}
+
+.product img{
+  object-fit: scale-down;
+}
+
+.product .container{
+  width: 100%;
+}
+
+.carousel-inner{
+  width: 500px;
+  background-color: white;
+  margin-top: 5em;
+}
+
+.product .card{
+  margin: 20px;
+  padding: 20px;
+}
+
+/**
+ * Make images responsive
+ */
+ .flex .col img {
+	width: 100%;
+	height: auto;
+}
+
+/**
+ * Make .flex children same
+ * height using display flex.
+ * Justify property prepares
+ * cols for being centered.
+ */
+.flex {
+	display: flex;
+	justify-content: center;
+	width: 960px;
+	max-width: 100%;
+	margin: auto;
+}
+
+/**
+ * Make cols flexible to
+ * auto push button at the
+ * col bottom.
+ */
+.flex .col {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 300px;
+	/* 
+	In the order, equal to
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 300px;
+	*/
+	margin: 1em;
+}
+
+/**
+ * Margin-top auto pushes
+ * button to bottom.
+ * Align self makes button
+ * stuck to the left.
+ */
+.flex .col .btn {
+	align-self: flex-start;
+	margin-top: auto;
+}
+
+/**
+ * Under 900px wrap cols
+ */
+@media (max-width: 900px) {
+	.flex {
+		flex-wrap: wrap;
+	}
+}

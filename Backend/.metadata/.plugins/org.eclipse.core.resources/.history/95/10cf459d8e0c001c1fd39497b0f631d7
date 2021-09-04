@@ -1,0 +1,105 @@
+package com.sunbeam.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.sunbeam.daos.ProductsDao;
+import com.sunbeam.entities.Products;
+import com.sunbeam.utils.StorageService;
+
+@Transactional
+@Service
+public class ProductServiceImpl implements ProductService {
+
+	@Autowired
+	private ProductsDao productsDao;
+	
+	@Autowired
+	private StorageService storageService;
+	
+	@Override
+	public List<Products> findByCategory(String category) {
+		return productsDao.findByCategory(category);
+	}
+
+	@Override
+	public List<Products> findByBrand(String brand) {
+		return productsDao.findByBrand(brand);
+	}
+
+
+	@Override
+	public List<Products> findByOrderByPriceAsc() {
+		return productsDao.findByOrderByPriceAsc();
+	}
+
+	@Override
+	public List<Products> findByOrderByPriceDesc() {
+		// TODO Auto-generated method stub
+		return productsDao.findByOrderByPriceDesc();
+	}
+
+	@Override
+	public Products saveProduct(Products products, MultipartFile image1,MultipartFile image2,MultipartFile image3) {
+		String fileName1 = storageService.store(image1);
+		String fileName2 = storageService.store(image2);
+		String fileName3 = storageService.store(image3);
+		products.setImage1(fileName1);
+		products.setImage2(fileName2);
+		products.setImage3(fileName3);
+		return productsDao.save(products);
+	}
+
+	@Override
+	public void deleteProductsByPname(String pname) {
+		productsDao.deleteProductsByPname(pname);
+	}
+
+	@Override
+	public void deleteByProductId(Integer id) {
+		productsDao.deleteByProductId(id);
+	}
+
+	@Override
+	public List<Products> findAll() {
+		return productsDao.findAll();
+	}
+
+	@Override
+	public List<Products> findProductLikeName(String name) {
+		return productsDao.findByPnameContainingIgnoreCase(name);
+	}
+
+	@Override
+	public Products findByProductId(int id) {
+		return productsDao.findByProductId(id);
+	}
+
+	@Override
+	public Products update(Products products) {
+		return productsDao.update(products);
+	}
+	
+	@Override
+	public Products updateProductPriceByProductId(Products products, double price,int ProductId) {
+		String fileName1 = storageService.store(image1);
+		String fileName2 = storageService.store(image2);
+		String fileName3 = storageService.store(image3);
+		products.setImage1(fileName1);
+		products.setImage2(fileName2);
+		products.setImage3(fileName3);
+		return productsDao.save(products);
+	}
+
+//	@Override
+//	public void updatePrice(double price, int productId) {
+//		productsDao.changePrice(price, productId);
+//	}
+
+	
+	
+}

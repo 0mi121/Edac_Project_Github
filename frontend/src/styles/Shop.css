@@ -1,0 +1,86 @@
+.side{
+    background-color: #6fb9d6;
+}
+
+.shop .dropdown-price{
+    margin-bottom: 20px;
+}
+
+p{
+    font-size: medium;
+}
+
+.page-name,h2{
+    color: black;
+}
+
+.pname{
+    font-size: 18px;
+    font-family: 'Besley', serif;
+}
+
+body{
+    background-color:lightgray;
+}
+img {
+    margin: 5px;
+    padding: 5px;
+    width:  200px;
+}
+
+.shop img{
+    object-fit: scale-down;
+}
+
+#card{
+    border: 3px solid #6fb9d6;
+    margin-bottom: 20px;
+    height: 520px;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-title{
+    color: black;
+}
+
+/* .card{
+    background: rgba(112, 111, 111, 0);
+    backdrop-filter: saturate(100%) blur(20px);
+
+} */
+
+.card-text{
+    border: white;
+    box-shadow: none;
+    background-color: transparent;
+    margin: 0%;
+    padding: 0%;
+}
+.card-body{
+    box-shadow: none;
+    border: white;
+    background-color: transparent;
+    margin: 0%;
+    padding: 0%;
+}
+
+.list-group-item{
+    border: none;
+}
+
+.price{
+    font-size: 30px !important;
+}
+
+.MuiRating-decimal{
+    font-size: 30px;
+}
+
+#card:hover{
+	-webkit-transform: scale(1.1);
+	-moz-transform:scale(1.1);
+	transform: scale(1.1);
+}
+
+
