@@ -5,7 +5,7 @@ import Contact from "../pages/Contact";
 import About from "../pages/About";
 import Register from "../pages/Register";
 import "../styles/Header.css";
-import logo from '../images/LaviShop.png'
+import logo from '../images/logo.png'
 import { Dropdown } from "react-bootstrap";
 import Logout from "../pages/logout";
 import Login from "../pages/Login";
@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <div className="nav-bar">
       <BrowserRouter>
-        <nav className="navbar fixed-top navbar-expand-lg">
+        <nav className="navbar fixed-top navbar-expand-lg shadow">
           <div className="container-fluid">
             <span>
               <img className="logo" src={logo} alt="logo"/>

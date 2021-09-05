@@ -5,20 +5,19 @@
   
   .navbar{
     height: 85px;
-    background-color: black !important;
-    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: white !important;
+    box-shadow: 2px black;
     box-sizing: border-box;
     margin-bottom: 0%;
   }
 
   .nav-link {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    color: rgb(255, 254, 254);
-    font-family: 'Besley', serif;
+    color: black;
   }
   
   .navbar-dark .navbar-nav .nav-link {
@@ -26,16 +25,16 @@
 }
 
 .nav-bar .dropdown-menu{
-	background-color: black;
+	background-color: white;
 }
 
 .btn {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .btn.focus, .btn:focus, .btn:hover {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 

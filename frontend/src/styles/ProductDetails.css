@@ -16,7 +16,7 @@
   width: 100%;
 }
 
-.carousel-inner{
+.product .carousel-inner{
   width: 500px;
   background-color: white;
   margin-top: 5em;
@@ -27,10 +27,15 @@
   padding: 20px;
 }
 
-/**
- * Make images responsive
- */
- .flex .col img {
+.product .flex {
+	display: flex;
+	justify-content: center;
+	width: 960px;
+	max-width: 100%;
+	margin: auto;
+}
+
+.product  .flex .col img {
 	width: 100%;
 	height: auto;
 }
@@ -41,20 +46,14 @@
  * Justify property prepares
  * cols for being centered.
  */
-.flex {
-	display: flex;
-	justify-content: center;
-	width: 960px;
-	max-width: 100%;
-	margin: auto;
-}
+
 
 /**
  * Make cols flexible to
  * auto push button at the
  * col bottom.
  */
-.flex .col {
+.product .flex .col {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 300px;
@@ -73,7 +72,7 @@
  * Align self makes button
  * stuck to the left.
  */
-.flex .col .btn {
+.product .flex .col .btn {
 	align-self: flex-start;
 	margin-top: auto;
 }
@@ -82,7 +81,15 @@
  * Under 900px wrap cols
  */
 @media (max-width: 900px) {
-	.flex {
+	.product .flex {
 		flex-wrap: wrap;
 	}
+}
+
+.xzoom-gallery {
+    margin-top: 10px
+}
+
+.xzoom {
+    margin-top: 40px
 }

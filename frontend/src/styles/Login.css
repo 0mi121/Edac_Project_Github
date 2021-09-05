@@ -44,20 +44,14 @@ form{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* form{
-    background: rgba(112, 111, 111, 0);
-    backdrop-filter: saturate(100%) blur(20px);
-    padding: 50px;
-    border-radius: 5%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} */
+
 
 .form-control{
     background-color: transparent;
     border: 2px solid white dotted;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder { 
     color: rgb(102, 101, 101) !important;
     font-weight: 600;
   }
@@ -69,16 +63,6 @@ form{
     }
 
 
-/* .container {
-    background: rgba(0,0,0,0.25);
-  }
-  
-  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    .container {
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
-  } */
 
 .link{
     color: black;
@@ -92,3 +76,23 @@ div.input-group{
 div.form-group{
     text-align: center;
 }
+
+/* form{
+    background: rgba(112, 111, 111, 0);
+    backdrop-filter: saturate(100%) blur(20px);
+    padding: 50px;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+
+
+/* .container {
+    background: rgba(0,0,0,0.25);
+  }
+  
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .container {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+  } */

@@ -30,7 +30,7 @@ const ProductDetails = (props) =>{
                 <Carousel>
                   <Carousel.Item>
                     <img
-                      className="d-block w-100"
+                      className="d-block w-100 xzoom-gallery xzoom"
                       src={url + "/" + product.image1}
                       alt="First slide"
                       height="600px"
