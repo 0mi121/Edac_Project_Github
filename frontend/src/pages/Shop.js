@@ -21,10 +21,22 @@ const Shop = () => {
     const response = await fetch(url + "/orderByPriceAsc");
     setProducts(await response.json());
   }
+
   const priceDesc = async () => {
     const response = await fetch(url + "/orderByPriceDesc");
     setProducts(await response.json());
   }
+
+  const RatingAsc = async () => {
+    const response = await fetch(url + "/orderByRatingAsc");
+    setProducts(await response.json());
+  }
+
+  const RatingDesc = async () => {
+    const response = await fetch(url + "/orderByRatingDesc");
+    setProducts(await response.json());
+  }
+
   const FindByCategory = async (category) => {
     
     const response = await fetch(url + `/category/${category}`);
@@ -37,13 +49,8 @@ const Shop = () => {
     settotalcategories(await response.json());
   }
 
-  
   const [totalcategories, settotalcategories] = useState("")
-    
- const categories=["refrigerator", "Food Processor", "fan", "Geyser","AC","Burner","mixer"];
-
-
-
+  const categories=["refrigerator", "Food Processor", "fan", "Geyser","AC","Burner","mixer"];
 
   useEffect(() => {
     getProducts();
@@ -54,13 +61,13 @@ const Shop = () => {
       <div className="row">
         <div className="">
           <h1 className="text-center page-name">Shop page</h1>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between container-fluid">
             <Dropdown className="dropdown-price">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Sort By Price
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-2">
+                <Dropdown.Item href="">
                   <button className="btn" type="button" onClick={priceAsc}>
                     Ascending
                   </button>
@@ -72,14 +79,15 @@ const Shop = () => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+
             <Dropdown className="dropdown-price">
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Category
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 {categories.map((category) => {
                   return (
-                    <Dropdown.Item href="#/action-2">
+                    <Dropdown.Item href="">
                       <button
                         className="btn"
                         type="button"
@@ -90,11 +98,24 @@ const Shop = () => {
                     </Dropdown.Item>
                   );
                 })}
-                {/* <Dropdown.Item href="#/action-2">
-                  <button className="btn" type="button" onClick={()=>FindByCategory("refrigerator")}>
-                    refrigerator
+              </Dropdown.Menu>
+            </Dropdown>
+
+            <Dropdown className="dropdown-price">
+              <Dropdown.Toggle variant="light" id="dropdown-basic">
+                Sort By Rating
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href="">
+                  <button className="btn" type="button" onClick={RatingDesc}>
+                    Highest 
                   </button>
-                </Dropdown.Item> */}
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <button className="btn" type="button" onClick={RatingAsc}>
+                    Lowest
+                  </button>
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
@@ -168,53 +189,3 @@ const Shop = () => {
 
 export default Shop;
 
-
-/*Old*/
-/*
-                <div className="col-md-3 col-lg-3 col-xs-12 col-sm-6 columns figure">
-                  <a href={`/productdetails/${product.productId}`}>
-                    <div className="card" id="card">
-                      <div key={product.productId}></div>
-                      <h1 className="card-title text-center">
-                        {product.category}
-                      </h1>
-                      <img
-                        src={url + "/" + product.image1}
-                        className="card-img-top"
-                        height="200px"
-                        alt={product.brand + " " + product.category}
-                      />
-                      <div className="card-body">
-                        <p className="card-text">
-                          <li className="list-group-item">
-                            <p className="card-text pname">{product.pname}</p>
-                          </li>
-                          <li className="list-group-item">
-                            <div className="d-flex justify-content-between total font-weight-bold mt-4">
-                              <span className="price">₹ {product.price}</span>
-                              <span>
-                                <Box
-                                  component="fieldset"
-                                  mb={3}
-                                  borderColor="transparent"
-                                >
-                                  <Rating
-                                    precision={0.1}
-                                    name="size-large"
-                                    size="large"
-                                    value={product.rating}
-                                    readOnly
-                                  />
-                                  <span className="rating">
-                                    {product.rating}
-                                  </span>
-                                </Box>
-                              </span>
-                            </div>
-                          </li>
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-*/

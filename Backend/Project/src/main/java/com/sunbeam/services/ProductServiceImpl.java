@@ -39,8 +39,17 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Products> findByOrderByPriceDesc() {
-		// TODO Auto-generated method stub
 		return productsDao.findByOrderByPriceDesc();
+	}
+	
+	@Override
+	public List<Products> findByOrderByRatingAsc() {
+		return productsDao.findByOrderByRatingAsc();
+	}
+	
+	@Override
+	public List<Products> findByOrderByRatingDesc() {
+		return productsDao.findByOrderByRatingDesc();
 	}
 
 	@Override
@@ -97,6 +106,5 @@ public class ProductServiceImpl implements ProductService {
 	public List<String> findDistinctBrand() {
 		return productsDao.findDistinctBrand();
 	}
-
 
 }

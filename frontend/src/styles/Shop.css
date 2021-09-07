@@ -67,12 +67,12 @@ img {
 }
 
 .shop-container:hover .card {
-    filter: blur(1.2px);
+    /* filter: blur(1.5px); */
   }
   
   .shop-container .card:hover {
     border: coral 2px solid !important;
-    filter: blur(0);
+    /* filter: blur(0px); */
     -webkit-transform: scale(1.1);
 	-moz-transform:scale(1.1);
 	transform: scale(1.05);

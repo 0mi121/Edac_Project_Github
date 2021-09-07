@@ -16,6 +16,8 @@ public interface ProductService{
 	List<Products> findByBrand(String brand);
 	List<Products> findByOrderByPriceAsc();
 	List<Products> findByOrderByPriceDesc();
+	List<Products> findByOrderByRatingAsc();
+	List<Products> findByOrderByRatingDesc();
 	Products saveProduct(Products products,MultipartFile image1,MultipartFile image2,MultipartFile image3);
 	List<Products> findProductLikeName(String name);
 	@Modifying

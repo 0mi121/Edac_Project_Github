@@ -76,6 +76,17 @@ public class ProductRestController {
         return new ResponseEntity<>(products, HttpStatus.OK);     
     }
 	
+	@GetMapping(path = "/orderByRatingAsc")
+	public ResponseEntity<List<Products>> orderByRatingAsc() {
+		List<Products> products = productService.findByOrderByRatingAsc();
+		return new ResponseEntity<>(products, HttpStatus.OK);     
+	}
+	
+	@GetMapping(path = "/orderByRatingDesc")
+	public ResponseEntity<List<Products>> orderByRatingDesc() {
+		List<Products> products = productService.findByOrderByRatingDesc();
+		return new ResponseEntity<>(products, HttpStatus.OK);     
+	}
 	
 	@GetMapping(path = "/shop")
     public ResponseEntity<List<Products>> displayAll() {

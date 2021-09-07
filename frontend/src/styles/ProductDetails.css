@@ -86,10 +86,11 @@
 	}
 }
 
-.xzoom-gallery {
-    margin-top: 10px
+#description li{
+	list-style-type: square;
 }
 
-.xzoom {
-    margin-top: 40px
+#description li:last-child {
+	background-color: lime;
+	list-style-type: none;
 }

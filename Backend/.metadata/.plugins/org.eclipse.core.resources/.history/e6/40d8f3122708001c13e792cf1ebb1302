@@ -1,5 +1,0 @@
-package com.sunbeam.exception;
-
-public class UserNotFoundException {
-
-}

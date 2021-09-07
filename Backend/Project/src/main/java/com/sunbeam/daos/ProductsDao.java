@@ -18,6 +18,8 @@ public interface ProductsDao extends JpaRepository<Products, Integer>, CrudRepos
 	List<Products> findByBrand(String brand);
 	List<Products> findByOrderByPriceAsc();
 	List<Products> findByOrderByPriceDesc();
+	List<Products> findByOrderByRatingAsc();
+	List<Products> findByOrderByRatingDesc();
 	List<Products> findByPnameContainingIgnoreCase(String name);
 	void deleteByProductId(Integer id);
 	int deleteProductsByPname(String name);
