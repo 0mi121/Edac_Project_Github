@@ -91,6 +91,5 @@
 }
 
 #description li:last-child {
-	background-color: lime;
 	list-style-type: none;
 }

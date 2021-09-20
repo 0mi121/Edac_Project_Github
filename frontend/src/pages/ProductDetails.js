@@ -47,7 +47,7 @@ const ProductDetails = (props) =>{
               <Carousel>
                 <Carousel.Item>
                   <img
-                    className="d-block w-100 xzoom-gallery xzoom"
+                    className="d-block w-100"
                     src={url + "/" + product.image1}
                     alt="First slide"
                     height="600px"
@@ -82,7 +82,7 @@ const ProductDetails = (props) =>{
                   <p className="py-2">
                     <Box component="fieldset" mb={3} borderColor="transparent">
                       <Rating
-                        precision={0.5}
+                        precision={0.1}
                         name="size-large"
                         size="large"
                         value={product.rating}

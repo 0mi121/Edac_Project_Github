@@ -107,4 +107,14 @@ public class ProductServiceImpl implements ProductService {
 		return productsDao.findDistinctBrand();
 	}
 
+	@Override
+	public List<Products> findByCategoryOrderByPriceAsc(String category) {
+		return productsDao.findByCategoryOrderByPriceAsc(category);
+	}
+
+	@Override
+	public List<Products> findByCategoryOrderByPriceDesc(String category) {
+		return productsDao.findByCategoryOrderByPriceDesc(category);
+	}
+
 }

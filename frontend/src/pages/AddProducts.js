@@ -243,7 +243,7 @@ const AddProduct = () => {
             <option value="Fan">Fan</option>
           </select>
         </div>
-
+        
         <div className="mb-3">
           <label htmlFor="">Image 1</label>
           <span className="text validate" id="image1"></span>

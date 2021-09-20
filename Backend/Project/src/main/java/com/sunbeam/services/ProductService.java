@@ -13,6 +13,8 @@ public interface ProductService{
 	Products findByProductId(int id);
 	List<Products> findAll();
 	List<Products> findByCategory(String category);
+	List<Products> findByCategoryOrderByPriceAsc(String category);
+	List<Products> findByCategoryOrderByPriceDesc(String category);
 	List<Products> findByBrand(String brand);
 	List<Products> findByOrderByPriceAsc();
 	List<Products> findByOrderByPriceDesc();

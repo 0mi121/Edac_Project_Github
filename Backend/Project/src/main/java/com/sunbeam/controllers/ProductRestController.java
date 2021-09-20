@@ -88,6 +88,18 @@ public class ProductRestController {
 		return new ResponseEntity<>(products, HttpStatus.OK);     
 	}
 	
+	@GetMapping(path = "/findByCategoryOrderByPriceAsc/{category}")
+	public ResponseEntity<List<Products>> findByCategoryOrderByPriceAsc(@PathVariable ("category") String category) {
+		List<Products> products = productService.findByCategoryOrderByPriceAsc(category);
+		return new ResponseEntity<>(products, HttpStatus.OK);     
+	}
+
+	@GetMapping(path = "/findByCategoryOrderByPriceDesc/{category}")
+	public ResponseEntity<List<Products>> findByCategoryOrderByPriceDesc(@PathVariable ("category") String category) {
+		List<Products> products = productService.findByCategoryOrderByPriceDesc(category);
+		return new ResponseEntity<>(products, HttpStatus.OK);     
+	}
+	
 	@GetMapping(path = "/shop")
     public ResponseEntity<List<Products>> displayAll() {
 		List<Products> list = productService.findAll();
@@ -100,11 +112,11 @@ public class ProductRestController {
 //		return new ResponseEntity<>(list, HttpStatus.OK);
 //    }
 	
-	@GetMapping("/search")
-	public ResponseEntity<?> searchByName(@RequestParam(name="q", required=false) String query) {
-		if(query == null)
-			query = "";
-		List<Products> list = productService.findProductLikeName(query);
+	@GetMapping("/search/{query}")
+	public ResponseEntity<?> searchByName(@PathVariable ("query") String name) {
+		if(name == null)
+			name = "";
+		List<Products> list = productService.findProductLikeName(name);
 		Stream<ProductsDto> result = list.stream().map(product -> ProductsDto.fromEntity(product));
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}	

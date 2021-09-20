@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ControllerAdvice"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.sunbeam.daos.ProductsDao"/>
     <fullyQualifiedTypeName name="com.sunbeam.entities.Products"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.sunbeam.model.Response"/>
 </qualifiedTypeNameHistroy>

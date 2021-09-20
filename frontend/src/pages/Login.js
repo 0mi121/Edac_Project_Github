@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import axios from "axios";
 import { withRouter, Link } from "react-router-dom";
 import "../styles/Login.css";
@@ -9,17 +9,53 @@ axios.defaults.withCredentials = true
 
 const Login = (props) => {
 
-  const [state, setState] = useState({
-    email: "",
-    password: "",
-    loggedStatus: false,
-  });
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setState((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const user = { email, password };
+    if (email.length === 0) {
+      validator();
+      document.getElementById("emailValidate").innerHTML =
+        "Email Field is Empty *";
+    } else if (password.length === 0) {
+      validator();
+      document.getElementById("passwordValidate").innerHTML =
+        "Password Field is Empty *";
+    }else {
+        validator()
+        // send the email and password to the server
+    const response = await axios
+      .post(url + "/login", user)
+      .then((response) => {
+        if (response.status === 200) {
+          // set the state of the 
+          console.log(response.data)
+          setUser(response.data);
+          // store the user in localStorage
+          localStorage.setItem("user", JSON.stringify(response.data));
+          localStorage.setItem("id", JSON.stringify(response.data.data.roleid));
+          localStorage.setItem("firstname", JSON.stringify(response.data.data.first_name));
+          if (response.data.data.roleid == 1) props.history.push("/add_product");
+          else if (response.data.data.roleid == 2) props.history.push("/shop");
+          toast.success("Login Successful !");
+        }
+      })
+      .catch((err) => {
+        toast.error("Invalid username or password");
+        console.log(err);
+      });
+    }
   };
 
   const validator = () =>{
@@ -27,41 +63,10 @@ const Login = (props) => {
     document.getElementById("passwordValidate").innerHTML = "";
   }
 
-  const handleSubmitClick = (e) => {
-    e.preventDefault();
-    if (state.email.length === 0){
-      validator()
-      document.getElementById("emailValidate").innerHTML = "Email Field is Empty *";
-    }
-    else if (state.password.length === 0) {
-      validator()
-      document.getElementById("passwordValidate").innerHTML = "Password Field is Empty *";
-    }
-    else {
-      validator()
-      axios
-        .post(url + "/login", {
-          email: state.email,
-          password: state.password,
-        })
-        .then((res) => {
-          if (res.status === 200) {
-            localStorage.setItem("email", res.data.email);
-            localStorage.setItem("loggedStatus", "true");
-            props.history.push("/shop");
-            toast.success("Login Successful !");
-          }
-        })
-        .catch((err) => {
-          toast.error("Invalid username or password");
-          console.log(err);
-        });
-    }
-  };
   return (
-    <div>
+    <div className="login">
       <ToastContainer />
-      <form className="container">
+      <form className="container" onSubmit={handleSubmit}>
         <h1 className="text-center">Login</h1>
         <div className="form-group">
           <div className="text validate" id="emailValidate"></div>
@@ -74,8 +79,8 @@ const Login = (props) => {
             </div>
             <input
               className="form-control"
-              value={state.email}
-              onChange={handleChange}
+              value={email}
+              onChange={({ target }) => setEmail(target.value)}
               id="email"
               type="email"
               className="form-control"
@@ -92,8 +97,8 @@ const Login = (props) => {
             <input
               id="password"
               type="password"
-              value={state.password}
-              onChange={handleChange}
+              value={password}
+              onChange={({ target }) => setPassword(target.value)}
               className="form-control"
               placeholder="Enter password"
             />
@@ -101,7 +106,7 @@ const Login = (props) => {
 
           <button
             type="submit"
-            onClick={handleSubmitClick}
+            onClick={handleSubmit}
             className="btn justify-content-center grad-color btn-lg"
           >
             Login

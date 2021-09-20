@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useState , useEffect } from "react";
 //import { baseUrl } from '../assets/js/helpers';
-import { useHistory } from "react-router-dom";
 
 const baseUrl = "http://localhost:3000/";
 const Logout = () => {
-  const history = useHistory();
-  const OnLogout = () => {
-    window.localStorage.clear();
-    localStorage.setItem("loggedStatus", "false");
-    history.push("/");
+  const [user, setUser] = useState();
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+  }, []);
+
+  // logout the user
+  const handleLogout = () => {
+    setUser({});
+    localStorage.clear();
+    window.location.href='/login'
   };
 
-  return (
-    <div>
-      <h2>Are you sure want to logout?</h2>
-      <button className="grad-color btn-lg" onClick={OnLogout}>
-        Logout
-      </button>
-    </div>
-  );
+    return (
+      <div>
+        <button onClick={handleLogout}>logout</button>
+      </div>
+    );
+  
 };
 export default Logout;
