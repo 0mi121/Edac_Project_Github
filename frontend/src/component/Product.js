@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 const Product = ({productId,image1,image2,image3,rating,price,brand,pname}) => {
     return (
-      <div class="col-12 col-md-4 col-lg-3 col-sm-6 mb-5">
+      <div className="col-12 col-md-4 col-lg-3 col-sm-6 mb-5">
         <Link to={`/productdetails/${productId}`}>
-          <div class="card h-100" id="card">
+          <div className="card h-100" id="card">
             {/* <h5 className="text-muted">{product.category}</h5> */}
             <Carousel>
               <Carousel.Item>
@@ -17,7 +17,7 @@ const Product = ({productId,image1,image2,image3,rating,price,brand,pname}) => {
                   src={url + "/" + image1}
                   alt="First slide"
                   height="200px"
-                  class="card-img-top"
+                  className="card-img-top product-card"
                 />
               </Carousel.Item>
               <Carousel.Item>
@@ -25,7 +25,7 @@ const Product = ({productId,image1,image2,image3,rating,price,brand,pname}) => {
                   src={url + "/" + image2}
                   alt="Second slide"
                   height="200px"
-                  class="card-img-top"
+                  className="card-img-top product-card"
                 />
               </Carousel.Item>
               <Carousel.Item>
@@ -33,12 +33,12 @@ const Product = ({productId,image1,image2,image3,rating,price,brand,pname}) => {
                   src={url + "/" + image3}
                   alt="Third slide"
                   height="200px"
-                  class="card-img-top"
+                  className="card-img-top product-card"
                 />
               </Carousel.Item>
             </Carousel>
-            <div class="card-body">
-              <ul class="list-unstyled d-flex justify-content-between rating-price">
+            <div className="card-body">
+              <ul className="list-unstyled d-flex justify-content-between rating-price">
                 <li>
                   <Rating
                     precision={0.1}
@@ -48,10 +48,10 @@ const Product = ({productId,image1,image2,image3,rating,price,brand,pname}) => {
                     readOnly
                   />
                 </li>
-                <li class="text-right price">₹{price}</li>
+                <li className="text-right price">₹{price}</li>
               </ul>
               <h3 className="brand-name">{brand}</h3>
-              <p class="card-text pname">{pname}</p>
+              <p className="card-text pname">{pname}</p>
             </div>
           </div>
         </Link>

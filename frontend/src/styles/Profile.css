@@ -1,0 +1,22 @@
+.profile{
+    margin: 10px;
+}
+
+.profile .card{
+    width: 300px;
+}
+
+.profile .card-body{
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.card-img-top{
+    padding: 3px;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}

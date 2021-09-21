@@ -3,9 +3,9 @@ import "../styles/Shop.css";
 import { url } from "./../common/constants";
 import { Dropdown } from 'react-bootstrap';
 import Product from './../component/Product';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Shop = () => {
-
   // const rating = createContext();
   const [products, setProducts] = useState([]);
 
@@ -65,6 +65,7 @@ const Shop = () => {
 
   return (
     <div className="shop">
+      <ToastContainer />
       <div className="row">
         <div className="">
           <h1 className="text-center page-name">Shop page</h1>

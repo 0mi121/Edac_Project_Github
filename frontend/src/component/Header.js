@@ -7,22 +7,22 @@ import Register from "../pages/Register";
 import "../styles/Header.css";
 import logo from '../images/logo.png'
 import { Dropdown } from "react-bootstrap";
-import Logout from "../pages/logout";
 import Login from "../pages/Login";
-// import ForgotPassword from './../pages/ForgotPassword';
 import AddProduct from './../pages/AddProducts';
 import ProductDetails from './../pages/ProductDetails';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState ,useEffect} from 'react';
 import { url } from './../common/constants';
+import { ToastContainer, toast } from 'react-toastify';
+import Profile from './../pages/Profile';
 
 const Header = () => {
-
+  const fnameString = localStorage.getItem("firstname")
+  const fname = JSON.parse(fnameString);
   const [user, setUser] = useState();
   const [id, setId] = useState();
   const [search, setSearch] = useState('')
   const [products, setProducts] = useState([]);
-
+  
   // logout the user
   const handleLogout = () => {
     setUser({});
@@ -37,6 +37,7 @@ const Header = () => {
 
   useEffect(() => {
     setInterval(() => {
+
       const loggedInUser = localStorage.getItem("user");
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser);
@@ -53,6 +54,7 @@ const Header = () => {
 
   return (
     <div className="nav-bar">
+      <ToastContainer />
       <BrowserRouter>
         <nav className="navbar fixed-top navbar-expand-lg shadow">
           <div className="container-fluid">
@@ -132,7 +134,13 @@ const Header = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <i className="fas fa-user"></i> &nbsp; Account
+                {user ? (
+                  <span className="p">Hello {fname} </span>
+                ) : (
+                  <>
+                    <i className="fas fa-user"></i> &nbsp; Account
+                  </>
+                )}
               </button>
               <div className="dropdown-menu">
                 {!user ? (
@@ -149,12 +157,20 @@ const Header = () => {
                     </Dropdown.Item>
                   </div>
                 ) : (
-                  <Dropdown.Item>
-                    <i class="fas fa-sign-out-alt"></i> &nbsp;
-                    <button className="nav-link btn" onClick={handleLogout}>
-                      Logout
-                    </button>
-                  </Dropdown.Item>
+                  <div>
+                    <Dropdown.Item>
+                      <Link className="nav-link" to="/profile">
+                      <i className="fas fa-user"></i> &nbsp;
+                        Profile
+                      </Link>
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      <button className="nav-link btn" onClick={handleLogout}>
+                      <i class="fas fa-sign-out-alt"></i> &nbsp;
+                        Logout
+                      </button>
+                    </Dropdown.Item>
+                  </div>
                 )}
               </div>
             </div>
@@ -168,9 +184,9 @@ const Header = () => {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/register" component={Register} />
-            <Route path="/logout" component={Logout} />
             <Route path="/login" component={Login} />
             <Route path="/add_product" component={AddProduct} />
+            <Route path="/profile" component={Profile} />
             <Route
               path="/productdetails/:productId"
               component={ProductDetails}
