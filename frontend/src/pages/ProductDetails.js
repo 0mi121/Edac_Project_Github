@@ -8,6 +8,7 @@ import { Carousel } from 'react-bootstrap';
 
 const ProductDetails = (props) =>{
   const [product, setProduct] = useState({});
+  const [id, setId] = useState();
 
   let history = useHistory();
 
@@ -27,7 +28,16 @@ const ProductDetails = (props) =>{
     header .innerHTML = toAppend ;
 }
 
+const handleDelete = async() => {
+  console.log(props.match.params.productId)
+  fetch(url + `/deleteById/` + props.match.params.productId ,{ method: 'DELETE' });
+  history.goBack()
+}
+
   useEffect(() => {
+    const userStringRole = localStorage.getItem("id");
+    const id = JSON.parse(userStringRole);
+    setId(id)
     fetch(url + "/productdetails/" + props.match.params.productId)
       .then((res) => res.json())
       .then((result) => {
@@ -78,7 +88,7 @@ const ProductDetails = (props) =>{
               <div className="card">
                 <div className="card-body">
                   <h1 className="h2">{product.pname}</h1>
-                  <h2 className="py-2">₹ {product.price}</h2>
+                  <h2 className="py-2">{product.price} Rs.</h2>
                   <p className="py-2">
                     <Box component="fieldset" mb={3} borderColor="transparent">
                       <Rating
@@ -132,20 +142,31 @@ const ProductDetails = (props) =>{
 
                   <h4>Description:</h4>
                   <ul>
-                  <p id="description">{product.description}</p>
+                    <p id="description">{product.description}</p>
                   </ul>
 
                   <div class="d-flex justify-content-around">
                     <button
                       type="button"
                       onClick={() => history.goBack()}
-                      class="btn btn-warning btn-lg"
+                      class="btn btn-info btn-lg"
                     >
                       Go Back
                     </button>
+                    {id == 1 ? (
+                      <>
+                      <button type="button" class="btn btn-warning btn-lg">
+                        Update
+                      </button>
+                      <button type="button" onClick={handleDelete} class="btn btn-danger btn-lg">
+                        Delete
+                      </button>
+                      </>
+                    ) : 
                     <button type="button" class="btn btn-success btn-lg">
-                      Add to cart
-                    </button>
+                        Add to cart
+                      </button>
+                    }
                   </div>
                 </div>
               </div>

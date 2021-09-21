@@ -1,6 +1,7 @@
 package com.sunbeam.dtos;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sunbeam.entities.Products;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Component
 public class ProductsDto {
 	private int productId;
 	private String pname;

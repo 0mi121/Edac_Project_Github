@@ -67,7 +67,7 @@ const Login = (props) => {
     <div className="login">
       <ToastContainer />
       <form className="container" onSubmit={handleSubmit}>
-        <h1 className="text-center">Login</h1>
+        <h1 className="text-center text-form">Login</h1>
         <div className="form-group">
           <div className="text validate" id="emailValidate"></div>
           <br/>

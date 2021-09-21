@@ -2,6 +2,14 @@
     height: 48px;
 }
 
+.login{
+    margin: 50px;
+}
+
+.text-form{
+    color: black;
+}
+
 h2{
     font-weight: 700;
 }

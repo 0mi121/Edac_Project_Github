@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sunbeam.entities.Products;
+import com.sunbeam.model.ProductCred;
 
 public interface ProductService{
 	Products findByProductId(int id);
@@ -28,6 +29,5 @@ public interface ProductService{
 	void deleteByProductId(Integer id);
 	List<String> findDistinctCategory();
 	List<String> findDistinctBrand();
-//	void updatePrice(double price, int productId);
-	Products updateProductPriceByProductId(double price, int ProductId);
+	Products updateProduct(int productId, ProductCred cred);
 }

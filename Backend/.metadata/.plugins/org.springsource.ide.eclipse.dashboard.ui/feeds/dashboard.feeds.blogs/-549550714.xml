@@ -5,7 +5,43 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-09-17T09:47:40Z</updated>
+  <updated>2021-09-21T02:01:00Z</updated>
+  <entry>
+    <title>Spring Security 5.6.0-M3 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/20/spring-security-5-6-0-m3-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Steve Riesenberg</name>
+    </author>
+    <id>tag:spring.io,2021-09-20:4550</id>
+    <updated>2021-09-21T02:01:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the community, I’m pleased to announce the release of Spring Security 5.6.0-M3!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In addition to dependency upgrades and minor enhancements, the milestone contains a few noteworthy changes:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Introduced &lt;code&gt;SecurityContextChangedListener&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Added SAML 2.0 Single Logout Support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Added &lt;code&gt;RelyingPartyRegistrationResolver&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Added support to propagate the &lt;code&gt;TestSecurityContextHolder&lt;/code&gt; to &lt;code&gt;SecurityContextHolder&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;You can find the complete details in the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.6.0-M3"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Data 2021.0.5 and 2020.0.13 released</title>
     <link rel="alternate" href="https://spring.io/blog/2021/09/17/spring-data-2021-0-5-and-2020-0-13-released" />
@@ -1064,21 +1100,6 @@ class ServiceConfiguration {&#xD;
 &lt;p&gt;We&amp;rsquo;re making progress, removing ever more boilerplate. But what about the &lt;code&gt;DataSource&lt;/code&gt; and the &lt;code&gt;JdbcTemplate&lt;/code&gt;? You need them, but surely you shouldn&amp;rsquo;t have to recreate them each time? This is the insight of Spring Boot. It uses &lt;code&gt;@Condition&lt;/code&gt; annotations to decorate classes annotated with &lt;code&gt;@Component&lt;/code&gt; or &lt;code&gt;@Configuration&lt;/code&gt; to evaluate a test before creating the class or invoking the &lt;code&gt;@Bean&lt;/code&gt; method. These tests can look for clues in the environment. For example, let&amp;rsquo;s suppose you have H2 - an embedded SQL database on the classpath. And you have the &lt;code&gt;spring-jdbc&lt;/code&gt; library on the classpath that contains the &lt;code&gt;JdbcTemplate&lt;/code&gt; class. It can use a test to test for the presence of those classes on the classpath and infer that you want an embedded SQL &lt;code&gt;DataSource&lt;/code&gt; and that you want a &lt;code&gt;JdbcTemplate&lt;/code&gt; instance wired up with the newly-minted &lt;code&gt;DataSource&lt;/code&gt;. It has its own configuration to provide those beans for you. Now, you can drop the &lt;code&gt;@Configuration&lt;/code&gt; class altogether! Spring Boot provided two of the beans and implied the other one based on the stereotype annotations. &lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;ve looked at the basic motivations for the Spring IoC container, and we&amp;rsquo;ve looked at how the IoC container works to help satisfy the promises that the framework puts forward. &lt;/p&gt;
 &lt;p&gt;We could indeed go a lot further, exploring aspect oriented programming (AOP), auto-configuration, and so much more, but this was meant to provide a mental framework for understanding when to apply which kind of configuration so that you can focus on the important work of getting working software to production safely and quickly. &lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 2.6.0-M2 is now available</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/08/19/spring-boot-2-6-0-m2-is-now-available" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Madhura Bhave</name>
-    </author>
-    <id>tag:spring.io,2021-08-19:4524</id>
-    <updated>2021-08-19T18:00:39Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.6.0-M2&lt;/code&gt; has been released and is now available from &lt;a href="https://repo.spring.io/milestone"&gt;https://repo.spring.io/milestone&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.0-M2"&gt;more than a 100 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.6.0-M2/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
