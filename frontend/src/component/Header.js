@@ -14,8 +14,9 @@ import { useState ,useEffect} from 'react';
 import { url } from './../common/constants';
 import { ToastContainer, toast } from 'react-toastify';
 import Profile from './../pages/Profile';
+import Basket from './Basket';
 
-const Header = () => {
+const Header = (props) => {
   const fnameString = localStorage.getItem("firstname")
   const fname = JSON.parse(fnameString);
   const [user, setUser] = useState();
@@ -53,7 +54,7 @@ const Header = () => {
   }, 5000);
 
   return (
-    <div className="nav-bar">
+    <div className="nav-bar header">
       <ToastContainer />
       <BrowserRouter>
         <nav className="navbar fixed-top navbar-expand-lg shadow">
@@ -106,6 +107,13 @@ const Header = () => {
                     Contact
                   </Link>
                 </li>
+                {user ? (
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </Link>
+                  </li>
+                ) : null}
               </ul>
             </div>
 
@@ -160,14 +168,12 @@ const Header = () => {
                   <div>
                     <Dropdown.Item>
                       <Link className="nav-link" to="/profile">
-                      <i className="fas fa-user"></i> &nbsp;
-                        Profile
+                        <i className="fas fa-user"></i> &nbsp; Profile
                       </Link>
                     </Dropdown.Item>
                     <Dropdown.Item>
                       <button className="nav-link btn" onClick={handleLogout}>
-                      <i class="fas fa-sign-out-alt"></i> &nbsp;
-                        Logout
+                        <i class="fas fa-sign-out-alt"></i> &nbsp; Logout
                       </button>
                     </Dropdown.Item>
                   </div>
@@ -180,7 +186,24 @@ const Header = () => {
         <div className="container-fluid">
           <Switch>
             <Route path="/home" exact={true} component={Home} />
-            <Route path="/shop" component={Shop} />
+            <Route path="/shop">
+              <Shop
+                cartItems={props.cartItems}
+                onRemove={props.onRemove}
+                onAdd={props.onAdd}
+                products={props.products}
+                setProducts={props.setProducts}
+                totalcategories={props.totalcategories}
+                setTotalcategories={props.setTotalcategories}
+                getProducts={props.getProducts}
+                getTotalcategories={props.getTotalcategories}
+                priceAsc={props.priceAsc}
+                priceDesc={props.priceDesc}
+                RatingAsc={props.RatingAsc}
+                RatingDesc={props.RatingDesc}
+                FindByCategory={props.FindByCategory}
+              />
+            </Route>
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/register" component={Register} />
@@ -191,6 +214,13 @@ const Header = () => {
               path="/productdetails/:productId"
               component={ProductDetails}
             />
+            <Route path="/cart">
+              <Basket
+                cartItems={props.cartItems}
+                onAdd={props.onAdd}
+                onRemove={props.onRemove}
+              />
+            </Route>
             {/* <Route path="/changepassword" component={ForgotPassword} /> */}
           </Switch>
         </div>

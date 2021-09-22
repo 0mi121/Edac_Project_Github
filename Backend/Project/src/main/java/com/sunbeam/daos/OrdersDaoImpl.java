@@ -1,0 +1,23 @@
+package com.sunbeam.daos;
+
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.sunbeam.entities.Orders;
+
+@Repository
+@Transactional
+public class OrdersDaoImpl implements OrdersDao {
+
+	@Autowired
+	private EntityManager manager;
+	@Override
+	public void placeOrder(int userId,double amount) {
+		String jpql="INSERT INTO Orders (userid,amount,timeCreation) VALUES (:id, :amt, now())";
+		manager.createQuery(jpql,Orders.class).setParameter("id",userId).setParameter("amt",amount).executeUpdate();
+	}
+
+}

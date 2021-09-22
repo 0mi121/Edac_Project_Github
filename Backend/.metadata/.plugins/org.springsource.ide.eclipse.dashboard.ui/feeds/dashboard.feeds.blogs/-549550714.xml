@@ -5,7 +5,222 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-09-21T11:23:00Z</updated>
+  <updated>2021-09-22T13:00:00Z</updated>
+  <entry>
+    <title>Spring Data JDBC - How do I make Bidirectional Relationships?</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-relationships" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Jens Schauder</name>
+    </author>
+    <id>tag:spring.io,2021-09-09:4536</id>
+    <updated>2021-09-22T13:00:00Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;This is the second article of a series about how to tackle various challenges you might encounter when using Spring Data JDBC.
+The series consists of&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2021/09/09/spring-data-jdbc-how-to-use-custom-id-generation"&gt;Spring Data JDBC - How to use custom ID generation.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Data JDBC - How do I make bidirectional relationships? (this article).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you are new to Spring Data JDBC, you should start by reading its &lt;a href="https://spring.io/blog/2018/09/17/introducing-spring-data-jdbc"&gt;introduction&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/09/24/spring-data-jdbc-references-and-aggregates"&gt;this article, which explains the relevance of aggregates in the context of Spring Data JDBC&lt;/a&gt;. Trust me, it is important.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;This article is based on part of a &lt;a href="https://springone.io/2021/sessions/post-event/spring-data-jdbc-beyond-the-obvious"&gt;talk I did at Spring One 2021&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Spring Data JDBC doesn&amp;#8217;t have special support for bidirectional relationships.
+To understand why you don&amp;#8217;t really need any we have to look at to different kinds of relationships:
+We distinguish references within an aggregate and those across aggregates.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="internal-references"&gt;&lt;a class="anchor" href="#internal-references"&gt;&lt;/a&gt;Internal references&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Let us look first at references internal to an aggregate.
+Those get modelled by actual java references in Spring Data JDBC.
+These references always go from the aggregate root to the entity inside the aggregate.
+Actually the reference goes from an entity closer to the aggregate root to the one further inside.
+But the same arguments apply so we&amp;#8217;ll just consider the aggregate root and one inner entity.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;If you follow the ideas and rules of DDD you never access an internal entity directly.
+Instead you call a method on the aggregate root whenever you want to manipulate an internal entity and the aggregate root then calls the appropriate method on the internal entity.
+If the method needs a reference to the aggregate root you just pass it along when calling the method on the inner entity.
+The same goes for intermediate entities.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;But maybe you have many such methods and don&amp;#8217;t want to pass &lt;code&gt;this&lt;/code&gt; all over the place.
+In that case you simply pass the reference not during the method call, but during construction of the aggregate.
+Just plain Java code with nothing special about it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;As an example consider a &lt;code&gt;Minion&lt;/code&gt; and its &lt;code&gt;Toy&lt;/code&gt; which shall have a reference back to the &lt;code&gt;Minion&lt;/code&gt; so it can tell its owners name.
+The &lt;code&gt;Minion&lt;/code&gt; sets itself as the master of all its toys.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;class Minion {
+	@Id
+	Long id;
+	String name;
+	final Set&amp;lt;Toy&amp;gt; toys = new HashSet&amp;lt;&amp;gt;();
+
+	Minion(String name) {
+		this.name = name;
+	}
+
+	@PersistenceConstructor
+	private Minion(Long id, String name, Collection&amp;lt;Toy&amp;gt; toys) {
+
+		this.id = id;
+		this.name = name;
+		toys.forEach(this::addToy);
+	}
+
+	public void addToy(Toy toy) {
+		toys.add(toy);
+		toy.minion = this;
+	}
+
+	public void showYourToys() {
+		toys.forEach(Toy::sayHello);
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;class Toy {
+	String name;
+
+	@Transient // org.SPRINGframework.DATA...
+	Minion minion;
+
+	Toy(String name) {
+		this.name = name;
+	}
+
+	public void sayHello() {
+		System.out.println("I'm " + name + " and I'm a toy of " + minion.name);
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Note that you need to make those back references &lt;code&gt;@Transient&lt;/code&gt; using the Spring Data annotation, not the JPA one.
+Otherwise Spring Data JDBC would try to persist them. which would lead to infinite loops.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="external-references"&gt;&lt;a class="anchor" href="#external-references"&gt;&lt;/a&gt;External references&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The situation is even simpler for references between aggregates.
+With those references don&amp;#8217;t get implemented by Java references but by using the id of the referenced aggregate, optionally wrapped in an &lt;code&gt;AggregateReference&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Navigating such a reference translates into using the repository for the target aggregate and its &lt;code&gt;findById&lt;/code&gt; method.
+For example a &lt;code&gt;Minion&lt;/code&gt; might reference its evil master, a &lt;code&gt;Person&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;class Minion {
+	@Id
+	Long id;
+	String name;
+	AggregateReference&amp;lt;Person, Long&amp;gt; evilMaster;
+
+	Minion(String name, AggregateReference&amp;lt;Person, Long&amp;gt; evilMaster) {
+		this.name = name;
+		this.evilMaster = evilMaster;
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;class Person {
+	@Id
+	Long id;
+	String name;
+
+	Person(String name) {
+		this.name = name;
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Given a &lt;code&gt;Minion&lt;/code&gt; you can now load its evil master.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;@Autowired
+PersonRepository persons;
+
+//...
+
+Minion minion = //...
+
+Optional&amp;lt;Person&amp;gt; evilMaster = persons.findById(minion.evilMaster.getId());&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;In order to navigate the relationship in the opposite direction you declare a method in the &lt;code&gt;MinionRepository&lt;/code&gt; which finds the appropriate minions for a given evil master.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;interface MinionRepository extends CrudRepository&amp;lt;Minion, Long&amp;gt; {
+
+	@Query("SELECT * FROM MINION WHERE EVIL_MASTER = :id")
+	Collection&amp;lt;Minion&amp;gt; findByEvilMaster(Long id);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="listingblock"&gt;
+&lt;div class="content"&gt;
+&lt;pre class="prettyprint highlight"&gt;&lt;code data-lang="java"&gt;@Autowired
+MinionRepository minions;
+
+//...
+
+Person evilMaster = // ...
+
+Collection&amp;lt;Minion&amp;gt;findByEvilMaster(evilMaster.id);&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;With Spring Data JDBC 2.3 you don&amp;#8217;t have to use a &lt;code&gt;@Query&lt;/code&gt; annotation anymore because query derivation supports &lt;code&gt;AggregateReference&lt;/code&gt; as argument type.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sect1"&gt;
+&lt;h2 id="conclusion"&gt;&lt;a class="anchor" href="#conclusion"&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
+&lt;div class="sectionbody"&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;While Spring Data JDBC doesn&amp;#8217;t have explicit support for bidirectional relationships it turns out you don&amp;#8217;t need special support.
+All you need are the existing features and standard Java code.
+The complete example code is available in the Spring Data Example repository.
+&lt;a href="https://github.com/spring-projects/spring-data-examples/tree/main/jdbc/howto/bidirectionalinternal"&gt;There is one example for internal references&lt;/a&gt; and
+&lt;a href="https://github.com/spring-projects/spring-data-examples/tree/main/jdbc/howto/bidirectionalexternal"&gt;one example for external references&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;There will be more articles like this.
+Let me know if you would like me to cover specific topics.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - September 21st, 2021</title>
     <link rel="alternate" href="https://spring.io/blog/2021/09/21/this-week-in-spring-september-21st-2021" />
@@ -516,7 +731,18 @@ StepVerifier.create(result)
     <id>tag:spring.io,2021-09-06:4533</id>
     <updated>2021-09-09T18:00:00Z</updated>
     <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;This is the first article of a series about how to tackle various challenges you might encounter when using Spring Data JDBC.&lt;/p&gt;
+&lt;p&gt;This is the first article of a series about how to tackle various challenges you might encounter when using Spring Data JDBC.
+The series consists of&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="olist arabic"&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Data JDBC - How to use custom ID generation. (this article).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-relationships"&gt;Spring Data JDBC - How do I make bidirectional relationships?&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;If you are new to Spring Data JDBC, you should start by reading its &lt;a href="https://spring.io/blog/2018/09/17/introducing-spring-data-jdbc"&gt;introduction&lt;/a&gt; and &lt;a href="https://spring.io/blog/2018/09/24/spring-data-jdbc-references-and-aggregates"&gt;this article, which explains the relevance of aggregates in the context of Spring Data JDBC&lt;/a&gt;. Trust me, it is important.&lt;/p&gt;
@@ -1023,32 +1249,6 @@ public class GreetingController {&#xD;
     <updated>2021-08-26T11:00:00Z</updated>
     <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! In this installment, Josh Long talks to &lt;a href="https://twitter.com/whichrich"&gt;Richard North (@whichrich)&lt;/a&gt; and &lt;a href="https://twitter.com/bsideup"&gt;Sergei Egorov (@bsideup)&lt;/a&gt; about Testcontainers, their new company AtomicJar, and software licensing, among other things.&lt;/p&gt;
 &lt;iframe title="Richard North and Sergei Egorov on Testcontainers, their new company AtomicJar, and more" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=ist4k-10c5198-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;btn-skin=7"&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - August 24th, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/08/24/this-week-in-spring-august-24th-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-08-24:4526</id>
-    <updated>2021-08-24T07:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans, and welcome to another riveting roundup of all the news that&amp;rsquo;s fit to reprint in the Java and Spring ecosystems, with apologies, as always, to &lt;em&gt;The Times&lt;/em&gt;. We&amp;rsquo;re a week away from &lt;a href="https://springone.io"&gt;SpringOne 2021&lt;/a&gt;, our annual, free, and utterly online tentpole conference featuring hundreds of hours of amazing technical content from speakers all around the world and tens of thousands of attendees with whom to partake in the festivities. Do &lt;em&gt;not&lt;/em&gt; miss this! I&amp;rsquo;ll be there! &lt;/p&gt;
-&lt;p&gt;I get so excited in the leadup to SpringOne each year, and this year doubly so! First, there&amp;rsquo;s the usual monumental scope of the whole thing, which always gets me. &lt;a href="https://twitter.com/starbuxman/status/1429554959675125763"&gt;I also just got my first (of hopefully many) negative COVID-19 tests&lt;/a&gt; a few days ago, after three weeks of convalescence. Huzzah! I&amp;rsquo;m still taking it easy, trying to make sure I stay on the good side of the hospital doors, and that I don&amp;rsquo;t relapse or incur any of the possible repercussions of COVID post-recovery. All that to say that SpringOne, this year, a year in which we - a worldwide community - have been through hell and back and &lt;em&gt;still&lt;/em&gt; shipped paradigm-shifting, game-changing software, and a year in which I fought COVID-19, is going to be extra special for me. I got so excited I started &lt;a href="https://twitter.com/starbuxman/status/1430309519062573057?s=21"&gt;tweeting poetry &lt;/a&gt; :-) &lt;/p&gt;
-&lt;p&gt;Anyway, enough about this and that, let&amp;rsquo;s get to the roundup! There&amp;rsquo;s a ton of good stuff my friends! &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/08/19/spring-authorization-server-goes-to-production"&gt;Spring Authorization Server goes to production!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/08/19/a-bootiful-podcast-microsoft-azure-engineering-manager-rome-li-on-his-work-supporting-microsoft-azure-in-intellij-visual-studio-maven-eclipse-and-visual-studio-code"&gt;A Bootiful Podcast: Microsoft Azure engineering manager Rome Li on his work supporting Microsoft Azure in IntelliJ, Visual Studio, Maven, Eclipse, and Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://tanzu.vmware.com/developer/tv/bcak/39/"&gt;I love this episode of Nate Schutta&amp;rsquo;s podcast, &amp;ldquo;Between Chair and Keyboard&amp;rdquo;&lt;/a&gt; with Ryan Baxter&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/08/19/spring-boot-2-4-10-is-now-available"&gt;Spring Boot 2.4.10 is now available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/08/19/spring-boot-2-5-4-available-now"&gt;Spring Boot 2.5.4 available now&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/08/19/spring-boot-2-6-0-m2-is-now-available"&gt;Spring Boot 2.6.0-M2 is now available&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://m.youtube.com/watch?v=uFPbUqrbanc&amp;feature=youtu.be"&gt;Spring Cloud Config for Shared Microservice Configuration&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/08/18/spring-tools-4-11-1-released"&gt;Spring Tools 4.11.1 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/08/22/structuring-your-code-for-spring-framework-and-spring-boot"&gt;Structuring Your Code for Spring Framework and Spring Boot&lt;/a&gt; - I wrote a blog on how to think about the wiring of your objects in a typical Spring Boot application. I speak more about how the wiring works from an IoC perspective, not in terms of a particular paradigm or Spring module. The blog is meant to be a response to a question I received on Twitter that precipitated some writing. I hope you enjoy it!&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1430184278122397700"&gt;Microsoft and VMware would love to see you at SpringOne in September! Join us for big Spring on Azure announcements and attend keynotes, sessions, and a hands-on workshop. &lt;/a&gt;. Did I mention that I&amp;rsquo;ll be doing a breakout introducing all the new goodness in Azure Spring Cloud with my friends Julien Dubois and Layla Porter? Don&amp;rsquo;t miss this!&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

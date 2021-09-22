@@ -4,65 +4,20 @@ import { url } from "./../common/constants";
 import { Dropdown } from 'react-bootstrap';
 import Product from './../component/Product';
 import { ToastContainer, toast } from 'react-toastify';
+import Basket from './../component/Basket';
 
-const Shop = () => {
-  // const rating = createContext();
-  const [products, setProducts] = useState([]);
-
-  const [totalcategories, setTotalcategories] = useState([])
-
-  const getProducts = async () => {
-    const response = await fetch(url + "/shop");
-    setProducts(await response.json());
-  };
-
-  const getTotalcategories = async (category) => {
-    const response = await fetch(url + `/distinctCategory`)
-      .then(response => response.json())
-      .then(response => {
-        setTotalcategories(response);
-        console.log(response);
-      });
-  } 
-
-  const priceAsc = async () => {
-    const response = await fetch(url + "/orderByPriceAsc");
-    setProducts(await response.json());
-  }
-
-  const priceDesc = async () => {
-    const response = await fetch(url + "/orderByPriceDesc");
-    setProducts(await response.json());
-  }
-
-  const RatingAsc = async () => {
-    const response = await fetch(url + "/orderByRatingAsc");
-    setProducts(await response.json());
-  }
-
-  const RatingDesc = async () => {
-    const response = await fetch(url + "/orderByRatingDesc");
-    setProducts(await response.json());
-  }
-
-  const FindByCategory = async (category) => {
-    
-    const response = await fetch(url + `/category/${category}`);
-    setProducts(await response.json());
-    console.log(category)
-  }
-
-  const FindByCategorySortByPriceAsc = async (category) => {
-    
-    const response = await fetch(url + `/findByCategoryOrderByPriceAsc/${category}`);
-    setProducts(await response.json());
-  }
-
-  useEffect(() => {
-    getProducts();
-    getTotalcategories()
-  }, []);
-
+const Shop = (props) => {
+  const products=props.products
+  const setProducts=props.setProducts
+  const totalcategories=props.totalcategories
+  const setTotalcategories=props.setTotalcategories
+  const getProducts=props.getProducts
+  const getTotalcategories=props.getTotalcategories
+  const priceAsc=props.priceAsc
+  const priceDesc=props.priceDesc
+  const RatingAsc=props.RatingAsc
+  const RatingDesc=props.RatingDesc
+  const FindByCategory=props.FindByCategory
   return (
     <div className="shop">
       <ToastContainer />
@@ -148,13 +103,19 @@ const Shop = () => {
           <div className=" container-fluid row shop-container">
             {products.map((product) => {
               return (
-                <Product key={product.productId} {...product}/>
+                <Product onAdd={props.onAdd} product={product} key={product.productId} {...product}/>
               );
             })}
           </div>
         </div>
       </div>
+      {/* <Basket
+          cartItems={props.cartItems}
+          onAdd={props.onAdd}
+          onRemove={props.onRemove}
+        /> */}
     </div>
+    
   );
 };
 

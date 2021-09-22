@@ -1,0 +1,9 @@
+package com.sunbeam.daos;
+
+import com.sunbeam.entities.Orders;
+
+public interface OrdersDao {
+ //Orders placeOrder(int userId);
+
+void placeOrder(int userId, double amount);
+}
