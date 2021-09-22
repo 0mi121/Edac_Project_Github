@@ -116,11 +116,11 @@ const Login = (props) => {
           </button>
           <br/>
           <br/>
-          <Link to="/changepassword">
+          {/* <Link to="/changepassword">
             <a class="w3-button w3-block w3-section w3-red w3-ripple w3-padding myFont  w3-text-black">
               Forgot Password
             </a>
-          </Link>
+          </Link> */}
           <h4 className="forgot-password text-right">
             Dont have an account?{" "}
             <a className="link" href="/register">

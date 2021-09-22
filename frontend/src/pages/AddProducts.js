@@ -111,7 +111,6 @@ const AddProduct = () => {
         .then((response) => {
           const result = response.data;
           if (result.status === "success") {
-            alert("successfully added product");
             toast.success("successfully added product!");
             // go to the list of artists
             history.push("/shop");

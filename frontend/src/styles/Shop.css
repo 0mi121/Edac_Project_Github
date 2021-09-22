@@ -8,6 +8,10 @@
     margin-top: 0%;
 }
 
+.active, .dot:hover {
+    background-color: white;
+}
+
 p{
     font-size: medium;
 }

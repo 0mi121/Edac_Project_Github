@@ -11,6 +11,7 @@ export default class Register extends React.Component {
     this.state = {
       email: "",
       password: "",
+      retypedpass: "",
       first_name: "",
       last_name: "",
       phone: "",
@@ -18,6 +19,7 @@ export default class Register extends React.Component {
     };
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeRetypePassword = this.onChangeRetypePassword.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangePhone = this.onChangePhone.bind(this);
@@ -35,6 +37,11 @@ export default class Register extends React.Component {
   onChangePassword(e) {
     this.setState({
       password: e.target.value,
+    });
+  }
+  onChangeRetypePassword(e) {
+    this.setState({
+      retypedpass : e.target.value,
     });
   }
 
@@ -68,6 +75,7 @@ export default class Register extends React.Component {
       document.getElementById("firstNameValidate").innerHTML = "";
       document.getElementById("LastNameValidate").innerHTML = "";
       document.getElementById("PhoneValidate").innerHTML = "";
+      document.getElementById("RetypepasswordValidate").innerHTML = "";
   }
 
   async onSubmit(e) {
@@ -81,7 +89,14 @@ export default class Register extends React.Component {
       this.validator()
       document.getElementById("passwordValidate").innerHTML =
         "Password Field is Empty *";
-    } else if (this.state.first_name.length === 0) {
+        
+  } else if (this.state.retypedpass !== this.state.password) {
+    this.validator()
+    document.getElementById("RetypepasswordValidate").innerHTML =
+      "Password Doesn't Match....!!!";
+      
+  }
+    else if (this.state.first_name.length === 0) {
       this.validator()
       document.getElementById("firstNameValidate").innerHTML =
         "First Name Field is Empty *";
@@ -159,6 +174,22 @@ export default class Register extends React.Component {
                 type="password"
                 className="form-control"
                 placeholder="Enter password"
+              />
+            </div>
+            <div className="text-left validate" id="RetypepasswordValidate"></div>
+            <div className="input-group">
+              <div className="input-group-addon">
+                <span className="glyphicon">
+                  <i className="fas fa-key"></i>
+                </span>
+              </div>
+              <input
+                value={this.state.retypedpass}
+                onChange={this.onChangeRetypePassword}
+                id="RetypePassword"
+                type="password"
+                className="form-control"
+                placeholder="Confirm password"
               />
             </div>
             <div className="text-left validate" id="firstNameValidate"></div>

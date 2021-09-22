@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sunbeam.daos.UsersDao;
 import com.sunbeam.entities.User;
+import com.sunbeam.model.UserCred;
 
 @Transactional
 @Service
@@ -126,5 +127,15 @@ public class UserServiceImpl implements UserService{
 		Duration diff = Duration.between(tokenCreationDate, now);
 
 		return diff.toMinutes() >= EXPIRE_TOKEN_AFTER_MINUTES;
+	}
+
+	@Override
+	public User updateUser(int userid, UserCred cred) {
+		User user = findById(userid);
+		user.setFirst_name(cred.getFirst_name());
+		user.setLast_name(cred.getLast_name());
+		user.setEmail(cred.getEmail());
+		user.setPhone(cred.getPhone());
+		return userDao.save(user);
 	}
 }

@@ -16,11 +16,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.sunbeam.common.CustomResponse;
 import com.sunbeam.dtos.UserDto;
 import com.sunbeam.entities.User;
 import com.sunbeam.exception.UnauthorizedException;
 import com.sunbeam.model.Credentials;
 import com.sunbeam.model.Response;
+import com.sunbeam.model.UserCred;
 import com.sunbeam.services.UserService;
 
 @CrossOrigin(origins = "http://localhost:3000",allowCredentials = "true")
@@ -29,8 +32,8 @@ public class UserRestController {
 	@Autowired
 	private UserService userService;
 	
-//	@Autowired
-//	private CustomResponse response;
+	@Autowired
+	private CustomResponse response;
 	
 	//Show all users
 	@GetMapping("/users")
@@ -112,4 +115,18 @@ public class UserRestController {
 		return userService.resetPassword(token, password);
 	}
 	
+	@PutMapping("/update/user/{userid}")
+	public CustomResponse updateProduct(@PathVariable("userid")int userid, @RequestBody UserCred cred) {
+		User user = null;
+		try {
+			user = userService.updateUser(userid, cred);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(user != null) {
+			response.setStatus("success");
+			response.setData(user);
+		}
+		return response;
+	}
 }

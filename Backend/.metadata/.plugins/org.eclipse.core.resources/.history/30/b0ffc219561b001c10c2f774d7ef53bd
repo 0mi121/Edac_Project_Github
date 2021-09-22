@@ -1,0 +1,142 @@
+package com.sunbeam.services;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.sunbeam.daos.UsersDao;
+import com.sunbeam.entities.Products;
+import com.sunbeam.entities.User;
+import com.sunbeam.model.UserCred;
+
+@Transactional
+@Service
+public class UserServiceImpl implements UserService{
+
+	private static final long EXPIRE_TOKEN_AFTER_MINUTES = 30;
+
+	@Autowired
+	private UsersDao userDao;
+	
+	@Override
+	public User findById(int id) {
+		Optional<User> user = userDao.findById(id);
+		return user.orElse(null);
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		return userDao.findByEmail(email);
+	}
+
+	@Override
+	public User save(User user) {
+		return userDao.save(user);
+	}
+	
+	@Override
+	public User authenticate(String email, String password) {
+		User user = findByEmail(email);
+		if (user != null && password.equals(user.getPassword())) {
+			return user;
+		}
+		return null;
+	}
+
+	@Override
+	public List<User> findAll() {
+		return userDao.findAll();
+	}
+
+	@Override
+	public User login(String email, String password) {
+        User user = userDao.findByEmail(email);
+
+        	//if (!passwordEncoder.matches(password, user.getPassword())) {
+        	if(user != null && password.equals(user.getPassword())) {
+                return user;
+            } else {
+            	return null;
+            }
+
+    }
+	
+	@Override
+	public String forgotPassword(String email) {
+
+		Optional<User> userOptional = Optional
+				.ofNullable(userDao.findByEmail(email));
+
+		if (!userOptional.isPresent()) {
+			return "Invalid email id.";
+		}
+
+		User user = userOptional.get();
+		user.setToken(generateToken());
+		user.setTokenCreationDate(LocalDateTime.now());
+
+		user = userDao.save(user);
+
+		return user.getToken();
+	}
+	
+	
+	@Override
+	public String resetPassword(String token, String password) {
+
+		Optional<User> userOptional = Optional
+				.ofNullable(userDao.findByToken(token));
+
+		if (!userOptional.isPresent()) {
+			return "Invalid token.";
+		}
+
+		LocalDateTime tokenCreationDate = userOptional.get().getTokenCreationDate();
+
+		if (isTokenExpired(tokenCreationDate)) {
+			return "Token expired.";
+
+		}
+
+		User user = userOptional.get();
+
+		user.setPassword(password);
+		user.setToken(null);
+		user.setTokenCreationDate(null);
+
+		userDao.save(user);
+
+		return "Your password successfully updated.";
+	}
+	
+	private String generateToken() {
+		StringBuilder token = new StringBuilder();
+
+		return token.append(UUID.randomUUID().toString())
+				.append(UUID.randomUUID().toString()).toString();
+	}
+	
+	private boolean isTokenExpired(final LocalDateTime tokenCreationDate) {
+
+		LocalDateTime now = LocalDateTime.now();
+		Duration diff = Duration.between(tokenCreationDate, now);
+
+		return diff.toMinutes() >= EXPIRE_TOKEN_AFTER_MINUTES;
+	}
+
+	@Override
+	public User updateUser(int userid, UserCred cred) {
+		User user = findById(userid);
+		user.setFirst_name(cred.getFirst_name());
+		user.setLast_name(cred.getLast_name());
+		user.setEmail(cred.getEmail());
+		user.setPhone(cred.getEmail());
+		return productsDao.save(products);
+	}
+}

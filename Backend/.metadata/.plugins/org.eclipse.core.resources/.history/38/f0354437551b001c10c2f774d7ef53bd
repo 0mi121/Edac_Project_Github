@@ -1,0 +1,15 @@
+package com.sunbeam.model;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+public class UserCred {
+	@Id
+	@Column(name = "userid")
+	private int id;
+	private String email;
+	private String password;
+	private String first_name;
+	private String last_name;
+	private String phone;
+}
