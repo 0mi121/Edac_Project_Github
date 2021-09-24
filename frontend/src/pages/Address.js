@@ -160,9 +160,12 @@ const Address = () => {
             />
           </div>
           <div className="mb-3">
-            <button onClick={addAddress} className="btn btn-success">
+          <Link to="/success">
+              <a className="btn btn-warning">Add</a>
+            </Link>
+            {/* <button onClick={addAddress} className="btn btn-success">
               Add
-            </button>
+            </button> */}
 
             <Link to="/cart">
               <a className="btn btn-warning">Back</a>

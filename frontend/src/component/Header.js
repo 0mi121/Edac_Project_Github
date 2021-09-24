@@ -5,7 +5,7 @@ import Contact from "../pages/Contact";
 import About from "../pages/About";
 import Register from "../pages/Register";
 import "../styles/Header.css";
-import logo from '../images/logo.png'
+import logo from '../images/logo.jpeg'
 import { Dropdown } from "react-bootstrap";
 import Login from "../pages/Login";
 import AddProduct from './../pages/AddProducts';
@@ -18,6 +18,7 @@ import Basket from './Basket';
 import Address from './../pages/Address';
 import Orders from './Orders';
 import EditProfile from './../pages/EditProfile';
+import Sucess from './../pages/Sucess';
 
 const Header = (props) => {
   const {search, setSearch,handleSearch} = props
@@ -217,6 +218,7 @@ const Header = (props) => {
             <Route path="/add_product" component={AddProduct} />
             <Route path="/profile" component={Profile} />
             <Route path="/address" component={Address} />
+            <Route path="/success" component={Sucess} />
             <Route
               path="/productdetails/:productId"
               component={ProductDetails}

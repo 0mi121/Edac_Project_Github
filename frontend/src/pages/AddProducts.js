@@ -125,7 +125,7 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container add-product">
       <ToastContainer />
       <h1 className="page-title page-name">Add Product</h1>
 
