@@ -1,0 +1,7 @@
+package com.sunbeam.services;
+
+import com.sunbeam.entities.Orders;
+
+public interface AddressService {
+	Orders save(Orders orders);
+}

@@ -1,0 +1,22 @@
+package com.sunbeam.services;
+
+import com.sunbeam.daos.OrdersDao;
+import com.sunbeam.entities.Orders;
+import com.sunbeam.entities.User;
+
+public class OrdersServiceImpl implements OrdersService{
+
+	private OrdersDao ordersDao;
+	
+	@Override
+	public Orders save(Orders orders) {
+		// TODO Auto-generated method stub
+		return or;
+	}
+
+	/*
+	 * @Override
+	public User save(User user) {
+		return userDao.save(user);
+	}*/
+}

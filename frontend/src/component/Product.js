@@ -9,7 +9,6 @@ const Product = ({productId,image1,image2,image3,rating,price,brand,pname,onAdd,
     return (
       <div className="col-12 col-md-4 col-lg-3 col-sm-6 mb-5">
           <div className="card h-100" id="card">
-            {/* <h5 className="text-muted">{product.category}</h5> */}
             <Carousel>
               <Carousel.Item>
                 <img

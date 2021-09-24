@@ -1,0 +1,29 @@
+package com.sunbeam.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sunbeam.dtos.OrdersDto;
+import com.sunbeam.dtos.ProductsDto;
+import com.sunbeam.entities.Orders;
+import com.sunbeam.entities.Products;
+import com.sunbeam.model.Response;
+import com.sunbeam.services.OrdersService;
+
+@CrossOrigin(origins = "http://localhost:3000",allowCredentials = "true")
+@RestController
+public class OrdersController {
+
+	@Autowired
+	private OrdersService ordersService;
+	
+	@PostMapping("/placeOrder")
+    public ResponseEntity<?> addProduct(OrdersDto ordersDto) {
+		Orders orders = OrdersDto.toEntity(ordersDto);
+        orders = ordersService.save(orders);
+        return Response.success(orders);
+    }
+}

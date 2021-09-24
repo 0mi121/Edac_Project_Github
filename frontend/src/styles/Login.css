@@ -44,7 +44,7 @@ h1{
     width: 60%;
 }
 
-form{
+.login form{
     border: 1px solid black;
     background-color: white;
     padding: 50px;
@@ -54,7 +54,7 @@ form{
 
 
 
-.form-control{
+.login .form-control{
     background-color: transparent;
     border: 2px solid white dotted;
 }

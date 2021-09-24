@@ -9,6 +9,15 @@ function App() {
 
   const [totalcategories, setTotalcategories] = useState([])
 
+  const [cartItems, setCartItems] = useState([]);
+
+  const [search, setSearch] = useState('')
+
+  const handleSearch = async () =>{
+    const response = await fetch(url + `/search/${search}`);
+    setProducts(await response.json());
+  }
+
   const getProducts = async () => {
     const response = await fetch(url + "/shop");
     setProducts(await response.json());
@@ -19,7 +28,6 @@ function App() {
       .then(response => response.json())
       .then(response => {
         setTotalcategories(response);
-        console.log(response);
       });
   } 
 
@@ -44,10 +52,8 @@ function App() {
   }
 
   const FindByCategory = async (category) => {
-    
     const response = await fetch(url + `/category/${category}`);
     setProducts(await response.json());
-    console.log(category)
   }
 
   const FindByCategorySortByPriceAsc = async (category) => {
@@ -56,19 +62,13 @@ function App() {
     setProducts(await response.json());
   }
 
-  useEffect(() => {
-    getProducts();
-    getTotalcategories()
-  }, []);
-
-
-  const [cartItems, setCartItems] = useState([]);
   const onAdd = (product) => {
-    const exist = cartItems.find((x) => x.id === product.productId);
+    const exist = cartItems.find((x) => x.id === product.id);
+    
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.productId ? { ...exist, qty: exist.qty + 1 } : x
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
     } else {
@@ -76,19 +76,23 @@ function App() {
     }
   };
   const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.productId);
+    const exist = cartItems.find((x) => x.id === product.id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.productId));
+      setCartItems(cartItems.filter((x) => x.id !== product.id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.productId ? { ...exist, qty: exist.qty - 1 } : x
+          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
     }
   };
 
-  
+  useEffect(() => {
+    getProducts();
+    getTotalcategories()
+  }, []);
+
   return (
     <div>
    
@@ -100,6 +104,9 @@ function App() {
       setProducts={setProducts}
       totalcategories={totalcategories}
       setTotalcategories={setTotalcategories}
+      search={search}
+      setSearch={setSearch}
+      handleSearch={handleSearch}
       getProducts={getProducts}
       getTotalcategories={getTotalcategories}
       priceAsc={priceAsc}
@@ -107,6 +114,7 @@ function App() {
       RatingAsc={RatingAsc}
       RatingDesc={RatingDesc}
       FindByCategory={FindByCategory}
+      countCartItems={cartItems.length}
       />
     </div>
   );

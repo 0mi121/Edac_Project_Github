@@ -15,13 +15,15 @@ import { url } from './../common/constants';
 import { ToastContainer, toast } from 'react-toastify';
 import Profile from './../pages/Profile';
 import Basket from './Basket';
+import Address from './../pages/Address';
+import Orders from './Orders';
+import EditProfile from './../pages/EditProfile';
 
 const Header = (props) => {
-  const fnameString = localStorage.getItem("firstname")
-  const fname = JSON.parse(fnameString);
+  const {search, setSearch,handleSearch} = props
+  const fname = JSON.parse(localStorage.getItem("firstname"));
   const [user, setUser] = useState();
   const [id, setId] = useState();
-  const [search, setSearch] = useState('')
   const [products, setProducts] = useState([]);
   
   // logout the user
@@ -30,11 +32,6 @@ const Header = (props) => {
     localStorage.clear();
     window.location.href='/login'
   };
-
-  const handleSearch = async (search) =>{
-    const response = await fetch(url + `/search/${search}`);
-    setProducts(await response.json());
-  }
 
   useEffect(() => {
     setInterval(() => {
@@ -45,7 +42,7 @@ const Header = (props) => {
       setUser(foundUser);
     }
       const userString = localStorage.getItem("user");
-      const userStringRole = localStorage.getItem("id");
+      const userStringRole = localStorage.getItem("roleid");
       const user = JSON.parse(userString);
       const id = JSON.parse(userStringRole);
       setUser(user);
@@ -57,7 +54,7 @@ const Header = (props) => {
     <div className="nav-bar header">
       <ToastContainer />
       <BrowserRouter>
-        <nav className="navbar fixed-top navbar-expand-lg shadow">
+        <nav className="navbar navbar-expand-lg shadow">
           <div className="container-fluid">
             <span>
               <img className="logo" src={logo} alt="logo" />
@@ -111,13 +108,21 @@ const Header = (props) => {
                   <li className="nav-item">
                     <Link className="nav-link" to="/cart">
                       <i class="fas fa-shopping-cart"></i>
+                      {props.countCartItems ? (
+                        <button className="badge" id="lblCartCount">
+                          {props.countCartItems}
+                        </button>
+                      ) : (
+                        ""
+                      )}
                     </Link>
                   </li>
                 ) : null}
               </ul>
             </div>
 
-            {/* <div class="input-group rounded">
+            {user ? (
+            <div class="input-group rounded">
               <input
                 type="search"
                 class="rounded"
@@ -128,11 +133,11 @@ const Header = (props) => {
                 aria-describedby="search-addon"
               />
               <span class="border-0" id="search-addon">
-                <button onClick={handleSearch}>
+                <button className="btn" onClick={handleSearch}>
                   <i class="fas fa-search"></i>
                 </button>
               </span>
-            </div> */}
+            </div>):null}
 
             <div className="btn-group">
               <button
@@ -208,12 +213,17 @@ const Header = (props) => {
             <Route path="/contact" component={Contact} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
+            <Route path="/order" component={Orders} />
             <Route path="/add_product" component={AddProduct} />
             <Route path="/profile" component={Profile} />
+            <Route path="/address" component={Address} />
             <Route
               path="/productdetails/:productId"
               component={ProductDetails}
             />
+            <Route path="/edit/:id">
+              <EditProfile></EditProfile>
+            </Route>
             <Route path="/cart">
               <Basket
                 cartItems={props.cartItems}

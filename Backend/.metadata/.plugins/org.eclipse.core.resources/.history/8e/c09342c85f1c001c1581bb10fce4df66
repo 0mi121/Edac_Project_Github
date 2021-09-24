@@ -1,0 +1,27 @@
+package com.sunbeam.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sunbeam.dtos.AddressDto;
+import com.sunbeam.entities.Address;
+import com.sunbeam.model.Response;
+import com.sunbeam.services.AddressService;
+
+@CrossOrigin(origins = "http://localhost:3000",allowCredentials = "true")
+@RestController
+public class AddressController {
+
+	@Autowired
+	private AddressService addressService;
+	
+	@PostMapping("/address")
+    public ResponseEntity<?> placeOrder(AddressDto addressDto) {
+		Address address = AddressDto.toEntity(addressDto);
+		address = addressService.save(address);
+        return Response.success(address);
+    }
+}

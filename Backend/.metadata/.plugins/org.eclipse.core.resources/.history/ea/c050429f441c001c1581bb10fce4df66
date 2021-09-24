@@ -1,0 +1,5 @@
+package com.sunbeam.services;
+
+public class OrdersServiceImpl implements OrdersService{
+
+}

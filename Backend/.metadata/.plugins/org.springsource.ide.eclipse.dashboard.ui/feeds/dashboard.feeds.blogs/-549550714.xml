@@ -5,7 +5,231 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-09-22T13:00:00Z</updated>
+  <updated>2021-09-23T22:00:00Z</updated>
+  <entry>
+    <title>Spring Boot 2.6.0-M3 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/23/spring-boot-2-6-0-m3-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Phil Webb</name>
+    </author>
+    <id>tag:spring.io,2021-09-24:4555</id>
+    <updated>2021-09-23T22:00:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.6.0-M3&lt;/code&gt; has been released and is now available from &lt;a href="https://repo.spring.io/milestone"&gt;https://repo.spring.io/milestone&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Highlights of this release include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code&gt;PathPattern&lt;/code&gt; based path matching strategy is now used by default for Spring MVC applications.&lt;/li&gt;
+  &lt;li&gt;Elasticsearch properties for the different client implementations have have been consolidation and rationalized.&lt;/li&gt;
+  &lt;li&gt;Sanitization rules are now pluggable and can be based on the backing &lt;code&gt;PropertySource&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Spring Integration &lt;code&gt;PollerMetadata&lt;/code&gt; properties are now provided.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more details please take a look at the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.6.0-M3-Release-Notes"&gt;release notes wiki page&lt;/a&gt; and the &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.0-M3"&gt;changelog&lt;/a&gt;. Spring Boot 2.6.0-RC1 will be released October 21st with the GA due on November 18th.&lt;/p&gt;
+&lt;p&gt;Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.6.0-M3/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot 2.5.5 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/23/spring-boot-2-5-5-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Stéphane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2021-09-23:4554</id>
+    <updated>2021-09-23T10:34:18Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.5.5&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
+&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.5.5"&gt;41 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.5.5/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Cloud 2020.0.4 has been released</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/23/spring-cloud-2020-0-4-has-been-released" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Olga Maciaszek-Sharma</name>
+    </author>
+    <id>tag:spring.io,2021-09-22:4552</id>
+    <updated>2021-09-23T08:00:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the community, I am pleased to announce that the 2020.0.4 release of &lt;a href="https://cloud.spring.io"&gt;Spring Cloud&lt;/a&gt; is available today. The release can be found in &lt;a href="https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.4/"&gt;Maven Central&lt;/a&gt;. You can check out the 2020.0 &lt;a href="https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-2020.0-Release-Notes"&gt;release notes for more information&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See all issues included in this release &lt;a href="https://github.com/orgs/spring-cloud/projects/64"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This was primarily a bug fix and documentation release. 2020.0.4 is compatible with Spring Boot 2.4.x and 2.5.x.&lt;/p&gt;&lt;h2&gt;&lt;a href="#notable-changes-in-the-2020-0-4-release" class="anchor" name="notable-changes-in-the-2020-0-4-release"&gt;&lt;/a&gt;Notable Changes in the 2020.0.4 release&lt;/h2&gt;&lt;h3&gt;&lt;a href="#spring-cloud-commons" class="anchor" name="spring-cloud-commons"&gt;&lt;/a&gt;Spring Cloud Commons&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Allow passing group while creating reactive circuit breaker (&lt;a href="https://github.com/spring-cloud/spring-cloud-commons/issues/994"&gt;#994 &lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-config" class="anchor" name="spring-cloud-config"&gt;&lt;/a&gt;Spring Cloud Config&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Return Boolean and Integer Properties when using JDBC backend (&lt;a href="https://github.com/spring-cloud/spring-cloud-config/issues/1952"&gt; #1952 &lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Provide the git username/password at run time(dynamically) (&lt;a href="https://github.com/spring-cloud/spring-cloud-config/issues/1896"&gt; #1896 &lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-contract" class="anchor" name="spring-cloud-contract"&gt;&lt;/a&gt;Spring Cloud Contract&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add explicit dependency to generateContractTests task for processContractTestResources (&lt;a href="https://github.com/spring-cloud/spring-cloud-contract/pull/1665"&gt; #1665 &lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;WireMock upgraded to 2.31.0 (&lt;a href="https://github.com/spring-cloud/spring-cloud-contract/issues/1715"&gt; #1715 &lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-openfeign" class="anchor" name="spring-cloud-openfeign"&gt;&lt;/a&gt;Spring Cloud OpenFeign&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Allow to change a circuitbreaker name (&lt;a href="https://github.com/spring-cloud/spring-cloud-openfeign/issues/574"&gt;#574&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-netflix" class="anchor" name="spring-cloud-netflix"&gt;&lt;/a&gt;Spring Cloud Netflix&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Do not register Eureka config server bootstrap when Eureka is disabled (&lt;a href="https://github.com/spring-cloud/spring-cloud-netflix/issues/4000"&gt;#4000&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Dependency upgrades (&lt;a href="https://github.com/spring-cloud/spring-cloud-netflix/issues/4025"&gt;#4025&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-sleuth" class="anchor" name="spring-cloud-sleuth"&gt;&lt;/a&gt;Spring Cloud Sleuth&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Simplify ON_EACH reactor instrumentation (&lt;a href="https://github.com/spring-cloud/spring-cloud-sleuth/pull/1969"&gt;#1969&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;&lt;a href="#spring-cloud-kubernetes" class="anchor" name="spring-cloud-kubernetes"&gt;&lt;/a&gt;Spring Cloud Kubernetes&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Choose namespace in a consistent fashion across fabric8 and k8s-native clients (&lt;a href="https://github.com/spring-cloud/spring-cloud-kubernetes/issues/859"&gt;#859&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following modules were updated as part of 2020.0.4:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Module &lt;/th&gt;
+      &lt;th&gt;Version &lt;/th&gt;
+      &lt;th&gt;Issues&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Starter Build &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Netflix &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-netflix/milestone/104?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Openfeign &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-openfeign/milestone/39?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Gateway &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-gateway/milestone/56?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Commons &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-commons/milestone/90?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Config &lt;/td&gt;
+      &lt;td&gt;3.0.5 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-config/milestone/91?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Consul &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-consul/milestone/58?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Contract &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-contract/milestone/78?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Kubernetes &lt;/td&gt;
+      &lt;td&gt;2.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-kubernetes/milestone/33?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Sleuth &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-sleuth/milestone/92?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Vault &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;(&lt;a href="https://github.com/spring-cloud/spring-cloud-vault/milestone/48?closed=1"&gt;issues&lt;/a&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Zookeeper &lt;/td&gt;
+      &lt;td&gt;3.0.4 &lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud CircuitBreaker &lt;/td&gt;
+      &lt;td&gt;2.0.2 &lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Stream &lt;/td&gt;
+      &lt;td&gt;3.1.4 &lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Spring Cloud Function &lt;/td&gt;
+      &lt;td&gt;3.1.4 &lt;/td&gt;
+      &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;As always, we welcome feedback on &lt;a href="https://github.com/spring-cloud/"&gt;GitHub&lt;/a&gt;, on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud"&gt;Stack Overflow&lt;/a&gt;, or on &lt;a href="https://twitter.com/SpringCloud"&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To get started with Maven with a BOM (dependency management only):&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;dependencyManagement&amp;gt;&#xD;
+    &amp;lt;dependencies&amp;gt;&#xD;
+        &amp;lt;dependency&amp;gt;&#xD;
+            &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
+            &amp;lt;artifactId&amp;gt;spring-cloud-dependencies&amp;lt;/artifactId&amp;gt;&#xD;
+            &amp;lt;version&amp;gt;2020.0.4&amp;lt;/version&amp;gt;&#xD;
+            &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;&#xD;
+            &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;&#xD;
+        &amp;lt;/dependency&amp;gt;&#xD;
+    &amp;lt;/dependencies&amp;gt;&#xD;
+&amp;lt;/dependencyManagement&amp;gt;&#xD;
+&amp;lt;dependencies&amp;gt;&#xD;
+    &amp;lt;dependency&amp;gt;&#xD;
+        &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
+        &amp;lt;artifactId&amp;gt;spring-cloud-starter-config&amp;lt;/artifactId&amp;gt;&#xD;
+    &amp;lt;/dependency&amp;gt;&#xD;
+    &amp;lt;dependency&amp;gt;&#xD;
+        &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
+        &amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-client&amp;lt;/artifactId&amp;gt;&#xD;
+    &amp;lt;/dependency&amp;gt;&#xD;
+    ...&#xD;
+&amp;lt;/dependencies&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or with Gradle:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint groovy"&gt;buildscript {&#xD;
+  dependencies {&#xD;
+    classpath &amp;quot;io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE&amp;quot;&#xD;
+  }&#xD;
+}&#xD;
+&#xD;
+apply plugin: &amp;quot;io.spring.dependency-management&amp;quot;&#xD;
+&#xD;
+dependencyManagement {&#xD;
+  imports {&#xD;
+    mavenBom &amp;#39;org.springframework.cloud:spring-cloud-dependencies:2020.0.4&amp;#39;&#xD;
+  }&#xD;
+}&#xD;
+&#xD;
+dependencies {&#xD;
+  compile &amp;#39;org.springframework.cloud:spring-cloud-starter-config&amp;#39;&#xD;
+  compile &amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-eureka-client&amp;#39;&#xD;
+  //...&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot 2.4.11 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/09/22/spring-boot-2-4-11-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Stéphane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2021-09-23:4553</id>
+    <updated>2021-09-23T06:54:20Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I&amp;rsquo;m happy to announce that Spring Boot &lt;code&gt;2.4.11&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
+&lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.4.11"&gt;32 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.4.11/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Data JDBC - How do I make Bidirectional Relationships?</title>
     <link rel="alternate" href="https://spring.io/blog/2021/09/22/spring-data-jdbc-how-do-i-make-bidirectional-relationships" />
@@ -1113,142 +1337,6 @@ Let me know if you would like me to cover specific topics.&lt;/p&gt;
 &lt;p&gt;In parallel, Spring Framework 5.3.x and Spring Boot 2.x remain in active development for the time being, with Spring Boot 2.6 coming up this November and then Spring Boot 2.7 in May 2022. Once the final Spring Boot 2.x feature branch has been reached (it has yet to be determined whether this will be 2.7 or possibly a later release), that branch will turn into an extended open source maintenance phase along with Spring Framework 5.3.x, with several years of overlap in parallel to Spring Framework 6 and Spring Boot 3. Consider our previous handling of the Spring Framework 3.2.x and 4.3.x maintenance branches to understand how this will turn out in practice.&lt;/p&gt;
 &lt;p&gt;So if you intend to stay on JDK 8 or 11 for a further few years, or even if you intend to stay on the Spring Framework 5.3 infrastructure on JDK 17 for several years, rest assured that our extended maintenance of Spring Framework 5.3.x and Spring Boot 2.x will keep you covered. Once you are ready to prepare your applications for the next generation of the Java ecosystem, feel free to upgrade to Spring Framework 6 and Spring Boot 3 at your own pace, along with Tomcat, Jetty and co - with new infrastructural benefits and new architectural options becoming available to you. We hope that you will appreciate those choices over the next few years.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;P.S.: In case you&amp;rsquo;re wondering about JDK 11 as an LTS generation, please note that the commercial support timeframes for JDK 11 are shorter than for JDK 8, with JDK 11 LTS phasing out in late 2023 already. JDK 17 as the next LTS generation will provide support timeframes until 2026 at least. We consider JDK 8 to have a unique role in the ecosystem; in comparison, JDK 11 is a transitional release. Also, JDK 17 provides an accumulated set of recent language, API and JVM enhancements, making it a more compelling upgrade. Last but not least, within the same Spring Framework 6.x generation, there&amp;rsquo;ll be JDK releases up until 29 LTS (in 2027) to support still, turning the eventual support range into a rather broad JDK 17-29 anyway.&lt;/em&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Monitor Spring Boot applications end-to-end using Dynatrace in Azure Spring Cloud!</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/09/01/monitor-spring-boot-applications-end-to-end-using-dynatrace-in-azure-spring-cloud" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-09-01:4530</id>
-    <updated>2021-09-01T16:00:00Z</updated>
-    <content type="html">&lt;p&gt;Today, we are excited to announce the integration of the &lt;strong&gt;Dynatrace Software Intelligence Platform in Azure Spring Cloud&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Over the past 18 months, we worked with many enterprise customers to learn about the scenarios they face. Many of these customers have thousands of Spring Boot applications running in on-premises data centers. As they migrate these applications to the cloud, they need to instrument them for application performance monitoring (APM) using solutions their developers are familiar with and have been using for years. In addition, they must ensure continuity for desktop and mobile applications that are already pre-instrumented for end-to-end monitoring using agents like Dynatrace OneAgent, which automatically discovers and maps all applications, microservices, and infrastructure as well as any dependencies in dynamic hybrid, multi-cloud environments. With the integration of Dynatrace OneAgent in Azure Spring Cloud, you can continue your journey and easily instrument your Spring Boot applications with Dynatrace.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Continue your Dynatrace journey&lt;/strong&gt;. Most organizations that deploy Spring Boot applications today share a similar goal: maximize the benefits of running Spring Boot applications at virtually any scale, using automation and APM. While Azure Spring Cloud excels at abstracting away much of the toil associated with managing containerized workloads, the challenge of monitoring and maintaining the performance and health of these applications, or of troubleshooting issues when they occur, can be daunting—especially as organizations deploy these applications at massive scale. To help you succeed and continue your Dynatrace journey, we integrated and upgraded your ability to instrument, monitor and deliver observability using Dynatrace OneAgent across your Azure Spring Cloud instances. That begins with setting up instrumentation quickly and easily. Then you can analyze the performance and health of your applications, JVMs, transactions, and more.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;“For Liantis, true hybrid monitoring across both our on-premises and cloud-based Spring Boot microservices is key, but we also require simple and straightforward implementation - which is in line with the true Azure Spring Cloud philosophy of abstracting complexity. Doing so allows Liantis to spend more time on developing innovative applications, rather than building and operating infrastructure, which enables us to deliver true value for our customers and employees. Building on our in-house expertise with both Spring and Dynatrace technology, combined with our previous investments, the Dynatrace integration with Azure Spring Cloud was the obvious choice for Liantis.” &amp;ndash; Nicolas Van Kerschaver, CIO, Liantis&lt;/p&gt;
-  &lt;p&gt;“Being able to scale is critical for today’s digital business, as organizations have made the shift to cloud-native workloads and microservices. While cloud-native technologies and microservices have tremendous advantages, dynamic environments bring complexity that makes it difficult to understand the relationships and dependencies across an organization’s cloud ecosystem. Dynatrace’s strategic partnership with Microsoft allows us to extend the impact of our automatic and intelligent observability even further to accelerate digital transformation. Through the Dynatrace integration with Azure Spring Cloud, we are enabling full visibility into application data for Spring Boot applications, which means more time innovating and a better product for end-users.” – Eric Horsman, Global Director of Strategic Alliances, Dynatrace&lt;/p&gt;
-  &lt;p&gt;“At Microsoft, we are committed to helping our customers modernize their applications and innovate faster than ever before. By integrating a software intelligence solution like Dynatrace with Azure Spring Cloud, we can enable our customers with easy implementation of end-to-end observability, including automatic and continuous root-cause analysis, for their Spring Boot applications.” &amp;ndash; Julia Liuson, Corporate Vice President, Developer Division, Microsoft&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/PF0_SxuiZ2w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;&lt;strong&gt;Instrument your Spring Boot applications.&lt;/strong&gt; Run a &amp;ldquo;provisioning&amp;rdquo; automation pipeline for a complete hands-off experience to instrument and monitor any new applications that you create and deploy – using Terraform or ARM Template. Or you can run it on-demand using the Azure CLI for greater flexibility and control.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint"&gt;az spring-cloud app update --name customers-service \&#xD;
-      --env DT_TENANT=&amp;lt;your-tenant&amp;gt; DT_TENANTTOKEN=&amp;lt;your-tenant-token&amp;gt; \&#xD;
-      DT_CONNECTION_POINT=&amp;lt;your-connection-point&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;Automatic discovery and mapping of applications and their dependencies.&lt;/strong&gt; To maintain real-time awareness in dynamic environments, Dynatrace automatically discovers and maps application components (including application servers, frameworks and microservices), databases, messaging and eventing systems, and their relationships. In the view shown below, the Dynatrace Portal shows all the Spring Boot applications running in a production workload.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/1-SpringCloudDynatraceAutomaticDiscovery.png"/&gt;
-&lt;p&gt;Screenshot 1 - shows all the Spring Boot applications running in a production workload&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;End-to-end observability of Spring Boot applications’ complete HTTP/S transactional behavior to understand the effect on business outcomes and user experiences.&lt;/strong&gt; In the example view below, Dynatrace provides developers with all the transaction traces implemented in code without any code change to applications.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/2-SpringCloudDynatraceDatabaseBacktrace.png"/&gt;
-&lt;p&gt;Screenshot 2 – shows transaction traces implemented in code without any code change to applications&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Endpoint monitoring, API monitoring, DB calls monitoring, end-user experience monitoring.&lt;/strong&gt; Dynatrace captures all the database queries initiated by your Spring Boot applications, including Azure database services. In the example view below, Dynatrace Portal shows all the active REST API operations within a production workload.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/3-SpringCloudDynatraceAPICalls2.png"/&gt;
-&lt;p&gt;Screenshot 3 – shows all the active REST API operations within a production workload&lt;/p&gt;
-&lt;p&gt;In the example view below, the Dynatrace Portal shows all the database queries initiated by a production workload.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/4-SpringCloudDynatraceDatabaseContribution.png"/&gt;
-&lt;p&gt;Screenshot 4 – shows all the database queries initiated by a production workload&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Root-cause and impact analysis&lt;/strong&gt; of application performance problems and business outcomes for faster, more reliable incident resolution. Dynatrace provides deep-code level visibility with end-to-end traces and the integration provides AI-assisted problem detection and automatic root-cause analysis allowing you to stay on top of your deployments and distinguish between healthy and unhealthy applications.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/5-SpringCloudDynatraceHotspots.png"/&gt;
-&lt;p&gt;Screenshot 5 – shows results from stack trace analysis&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Detect anomalies&lt;/strong&gt; in your Spring Boot application instances. Dynatrace passes the collected data through an AI engine for automated root cause analysis, code level hotspot analysis, top database queries and exception analysis. In the example screenshot below, Dynatrace automatically identifies code modules that are CPU intensive so that you do not have to dig through the data.&lt;/p&gt;
-&lt;img src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/6-SpringCloudDynatraceCPUAnalysis.png"/&gt;
-&lt;p&gt;Screenshot 6 - code modules that are CPU intensive so that you do not have to dig through the data&lt;/p&gt;
-&lt;p&gt;You can find all the top database queries initiated, how expensive these queries are, and how many times these queries are called by applications. In the example screenshot below, Dynatrace shows top database queries initiated by a production workload.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/7-SpringCloudDynatraceTopDatabase.png"/&gt;
-&lt;p&gt;Screenshot 7 – shows top database queries initiated by a production workload&lt;/p&gt;
-&lt;p&gt;All application code level exceptions are logged along with many details into the stack traces of where the exception occurred. In the example screenshot below, Dynatrace portal shows the top exceptions thrown by a production workload.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/8-SpringCloudDynatraceExceptionAnalysis.png"/&gt;
-&lt;p&gt;Screenshot 8 – shows the top exceptions thrown by a production workload&lt;/p&gt;
-&lt;p&gt;The Dynatrace Software Intelligence Platform automatically baselines all the performance metrics of Spring Boot applications. When the response times of an application increase beyond the auto detected baseline, the platform creates an alert with information like how much response times have breached from baselines. In the example screenshot below, Dynatrace shows response time degradation for a few services in a production workload.&lt;/p&gt;
-&lt;img   width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/9-SpringCloudDynatraceResponseTimeProblem1-reds.jpg"/&gt;
-&lt;p&gt;Screenshot 9 – shows response time degradation for a few services in a production workload&lt;/p&gt;
-&lt;p&gt;Dynatrace gives you insights on what caused these increases in response time, particularly the time taken to make a connection to a database service. In the example below, the Dynatrace portal calls out the time taken to make connections to a database.&lt;/p&gt;
-&lt;img  width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/10-SpringCloudDynatraceResponseTimeProblem2.png"/&gt;
-&lt;p&gt;Screenshot 10 – shows time taken to make connections to a database&lt;/p&gt;
-&lt;p&gt;Dynatrace automatically detects all the failures. In the example below, Dynatrace signals an increase in failure rates to reach an external network.&lt;/p&gt;
-&lt;img width ="800" src="https://raw.githubusercontent.com/joshlong/blog-images/master/dynatrace-azure-spring-cloud/11-SpringCloudDynatraceFailureRate_pub1.png"/&gt;
-&lt;p&gt;Screenshot 11 – signals an increase in failure rates to reach an external network&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Focus on delivering value to your end-users.&lt;/strong&gt; Once instrumented, as you scale out to multiple Spring Boot application instances, any new application instances are automatically monitored for you. Dynatrace enables application developers to observe Spring Boot applications end-to-end. You spend less time managing the agent installation and maintenance and more energy on identifying and resolving incidents faster. Azure Spring Cloud service is on-point for periodically updating the Dynatrace OneAgent.&lt;/p&gt;&lt;h2&gt;&lt;a href="#build-your-solutions-and-monitor-them-today" class="anchor" name="build-your-solutions-and-monitor-them-today"&gt;&lt;/a&gt;Build your solutions and monitor them today!&lt;/h2&gt;
-&lt;p&gt;Azure Spring Cloud is jointly built, operated, and supported by Microsoft and VMware. It is a fully managed service for Spring Boot applications that abstracts away the complexity of infrastructure and Spring Cloud middleware management, so you can focus on building your business logic and let Azure take care of dynamic scaling, patches, security, compliance, and high availability. With a few steps, you can provision Azure Spring Cloud, create applications, deploy, and scale Spring Boot applications and start monitoring in minutes. We will continue to bring more developer-friendly and enterprise-ready features to Azure Spring Cloud. &lt;/p&gt;
-&lt;p&gt;We would love to hear how you are building impactful solutions using Azure Spring Cloud. Start monitoring your Spring Boot applications with Dynatrace.&lt;/p&gt;&lt;h2&gt;&lt;a href="#resources" class="anchor" name="resources"&gt;&lt;/a&gt;Resources&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Learn using an MS Learn module or self-paced workshop on GitHub&lt;/li&gt;
-  &lt;li&gt;Learn more about implementing solutions on Azure Spring Cloud&lt;/li&gt;
-  &lt;li&gt;See related document published by Dynatrace&lt;/li&gt;
-  &lt;li&gt;Deploy a distributed version of Spring Petclinic built with Spring Cloud&lt;/li&gt;
-  &lt;li&gt;Deploy Spring Boot applications by leveraging enterprise best practices – Azure Spring Cloud Reference Architecture&lt;/li&gt;
-  &lt;li&gt;Migrate your Spring Boot, Spring Cloud and Tomcat applications to Azure Spring Cloud&lt;/li&gt;
-  &lt;li&gt;Wire Spring applications to interact with Azure services&lt;/li&gt;
-  &lt;li&gt;For feedback and questions, please e-mail us.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring GraphQL 1.0.0-M2 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/09/01/spring-graphql-1-0-0-m2-available-now" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Brian Clozel</name>
-    </author>
-    <id>tag:spring.io,2021-08-31:4528</id>
-    <updated>2021-09-01T08:20:00Z</updated>
-    <content type="html">&lt;p&gt;Less than 2 months after &lt;a href="https://spring.io/blog/2021/07/06/hello-spring-graphql"&gt;the initial announcement of Spring GraphQL&lt;/a&gt; and &lt;a href="https://spring.io/blog/2021/07/06/introducing-spring-graphql"&gt;its follow up intro blog&lt;/a&gt;,&lt;br/&gt;I&amp;rsquo;m happy to announce that the &lt;code&gt;1.0.0-M2&lt;/code&gt; version has been released and is available from the Spring Milestone repository.&lt;/p&gt;
-&lt;p&gt;The Spring GraphQL team would like to thank the early adopters and contributors - with your help, we&amp;rsquo;re making good progress towards a GA version!&lt;/p&gt;
-&lt;p&gt;We&amp;rsquo;ve &lt;a href="https://github.com/spring-projects/spring-graphql/milestone/2?closed=1"&gt;fixed a few issues and renamed a couple of concepts&lt;/a&gt;, but the most notable change is the introduction of a &lt;a href="https://docs.spring.io/spring-graphql/docs/1.0.0-M2/reference/html/#controllers"&gt;new annotation model for GraphQL Controllers&lt;/a&gt;.&lt;br/&gt;You can now annotate &lt;code&gt;@Controller&lt;/code&gt; components to handle queries, mutations and subscriptions:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@Controller&#xD;
-public class GreetingController {&#xD;
-&#xD;
-        @QueryMapping &#xD;
-        public String hello() { &#xD;
-            return &amp;quot;Hello, world!&amp;quot;;&#xD;
-        }&#xD;
-&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This is a new feature and we can&amp;rsquo;t wait to hear your feedback - &lt;a href="https://docs.spring.io/spring-graphql/docs/1.0.0-M2/reference/html/#controllers"&gt;please give it a try&lt;/a&gt; and let us know what you think!&lt;/p&gt;&lt;h2&gt;&lt;a href="#spring-graphql-at-springone" class="anchor" name="spring-graphql-at-springone"&gt;&lt;/a&gt;Spring GraphQL at SpringOne!&lt;/h2&gt;
-&lt;p&gt;Don&amp;rsquo;t miss the &lt;a href="https://springone.io/2021/sessions/spring-graphql"&gt;Spring GraphQL presentation at SpringOne today&lt;/a&gt;!&lt;br/&gt;This will give a nice intro to this new Spring project and you&amp;rsquo;ll get a chance to chat with the team, live and on the dedicated SpringOne Slack.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
-&lt;p&gt;If you&amp;rsquo;re interested in helping out, you can &lt;a href="https://docs.spring.io/spring-graphql/docs/1.0.0-M2/reference/html/#boot-graphql"&gt;get started with Spring GraphQL&lt;/a&gt; and &lt;a href="https://github.com/spring-projects/spring-graphql/issues"&gt;raise issues on our GitHub project&lt;/a&gt;.&lt;br/&gt;If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-graphql"&gt;&lt;code&gt;spring-graphql&lt;/code&gt; tag&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-graphql/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-graphql/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-graphql/docs/1.0.0-M2/reference/html/"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-graphql"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - August 31st, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/08/31/this-week-in-spring-august-31st-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-09-01:4529</id>
-    <updated>2021-09-01T02:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Can you believe it? &lt;em&gt;&lt;a href="https://springone.io"&gt;SpringOne 2021&lt;/a&gt;&lt;/em&gt; kicks off in less than 24 hours! Have you registered? It&amp;rsquo;s free and it&amp;rsquo;s virtual, but the talks are live and there&amp;rsquo;ll be ample opportunity to talk to the Spring and Tanzu teams behinds the scenes. And, of course, I&amp;rsquo;ll be there. Also, don&amp;rsquo;t miss tomorrow mornings opening keynote, which I&amp;rsquo;ll be emceeing. And please don&amp;rsquo;t &lt;a href="https://springone.io/2021/sessions/rapid-development-with-azure-spring-cloud"&gt;miss my session on Azure Spring Cloud with Julien Dubois and Layla Porter&lt;/a&gt;. There are a &lt;em&gt;ton&lt;/em&gt; of great talks over the next two days. Do &lt;em&gt;not&lt;/em&gt; miss these! Alrigty my friends, we&amp;rsquo;ve got a ton of stuff to review so without further ado, let&amp;rsquo;s dive right in! &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Hi, Spring fans! In the last week&amp;rsquo;s installment of &lt;a href="https://spring.io/blog/2021/08/26/bootiful-podcast-richard-north-and-sergei-egorov-on-testcontainers-their-new-company-atomicjar-and-more"&gt;&lt;em&gt;Bootiful Podcast&lt;/em&gt;, I talked to Richard North and Sergei Egorov on Testcontainers, their new company AtomicJar, and more&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1430567050120859648"&gt;Get hands-on with Azure Spring Cloud in 90 minutes. Register today - space is limited! Brought to you by Microsoft and VMware&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1430674051979120646"&gt;Are you ready to rapidly deploy and scale Spring Boot apps to Azure Spring Cloud? Register today!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This video seems like it&amp;rsquo;ll be worth a watch &lt;a href="https://www.youtube.com/watch?v=tljZWMreKrY"&gt;if you&amp;rsquo;re trying to learn Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Here&amp;rsquo;s an interesting video that looks &lt;a href="https://www.youtube.com/watch?v=_PEPaWFs064"&gt;at streaming with the reactive Spring Webflux&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This looks interesting: a video from Manning Publications on &lt;a href="https://www.youtube.com/watch?v=9r7UxenMxuc"&gt;building and securing web applications with Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Have you seen the &lt;a href="https://spring.io/community"&gt;Spring.io Community page?&lt;/a&gt; It&amp;rsquo;s a great place to find out about some of the external resources and portals in the wider community.&lt;/li&gt;
-  &lt;li&gt;Instana has updated their documentation on how to &lt;a href="https://www.instana.com/docs/ecosystem/spring-boot/"&gt;monitor Spring Boot applications with their suite&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The Baeldung article on embedding the &lt;a href="https://www.baeldung.com/keycloak-embedded-in-spring-boot-app"&gt;Keycloak authorization and authentication server in a Spring &lt;/a&gt; Boot application has been updated.&lt;/li&gt;
-  &lt;li&gt;The Baeldung article on the fundamentals &lt;a href="https://www.baeldung.com/spring-dependency-injection"&gt;of dependency injection in Spring has also been updated&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Bootiful Podcast - Richard North and Sergei Egorov on Testcontainers, their new company AtomicJar, and more</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/08/26/bootiful-podcast-richard-north-and-sergei-egorov-on-testcontainers-their-new-company-atomicjar-and-more" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-08-26:4527</id>
-    <updated>2021-08-26T11:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! In this installment, Josh Long talks to &lt;a href="https://twitter.com/whichrich"&gt;Richard North (@whichrich)&lt;/a&gt; and &lt;a href="https://twitter.com/bsideup"&gt;Sergei Egorov (@bsideup)&lt;/a&gt; about Testcontainers, their new company AtomicJar, and software licensing, among other things.&lt;/p&gt;
-&lt;iframe title="Richard North and Sergei Egorov on Testcontainers, their new company AtomicJar, and more" allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=ist4k-10c5198-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;btn-skin=7"&gt;&lt;/iframe&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

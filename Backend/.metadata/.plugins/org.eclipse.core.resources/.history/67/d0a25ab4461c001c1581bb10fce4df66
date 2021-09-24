@@ -1,0 +1,39 @@
+package com.sunbeam.dtos;
+
+import java.time.LocalDateTime;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.data.domain.jaxb.SpringDataJaxb.OrderDto;
+import org.springframework.stereotype.Component;
+
+import com.sunbeam.entities.Orders;
+import com.sunbeam.entities.User;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Component
+public class OrdersDto {
+	private int orderid;
+	private String amount;
+	private LocalDateTime odate;
+    private User user;
+    
+    public static OrdersDto fromEntity(Orders orders) {
+		OrdersDto dto = new OrdersDto();
+		BeanUtils.copyProperties(orders, dto);
+		dto.setOrderid(orders.getOrderid());
+		return dto;
+	}
+	
+	// called from POST, PUT
+	public static Orders toEntity(OrderDto dto) {
+		Orders orders = new Orders();
+		BeanUtils.copyProperties(dto, orders);
+		orders.setOrderid();
+		return orders;
+	}
+}

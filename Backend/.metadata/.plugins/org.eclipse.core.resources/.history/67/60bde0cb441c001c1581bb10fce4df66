@@ -1,0 +1,13 @@
+package com.sunbeam.services;
+
+import com.sunbeam.entities.Orders;
+
+public class OrdersServiceImpl implements OrdersService{
+
+	@Override
+	public Orders save(Orders orders) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

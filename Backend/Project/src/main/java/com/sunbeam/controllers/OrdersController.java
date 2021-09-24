@@ -1,22 +1,41 @@
 package com.sunbeam.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.sunbeam.daos.OrdersDao;
+import com.sunbeam.common.CustomResponse;
+import com.sunbeam.entities.Orders;
+import com.sunbeam.services.OrdersService;
 
-@Controller
-@RequestMapping("/order")
+@CrossOrigin(origins = "http://localhost:3000",allowCredentials = "true")
+@RestController
 public class OrdersController {
-@Autowired
-private OrdersDao order;
 
-@PostMapping("/place")
-public void placeOrder(@RequestParam int id,@RequestParam double amount) {
-	order.placeOrder(id, amount);
-}
+	@Autowired
+	private OrdersService ordersService;
+	
+	@Autowired
+	private CustomResponse response;
+	
+	@PostMapping("/placeOrder")
+	public CustomResponse addOrders(@RequestBody Orders orders) {
+		Orders orders2 = null;
+		try {
+			orders2 = ordersService.save(orders);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
+		if (orders2 != null) {
+			response.setStatus("success");
+			response.setData(orders2);
+		} else {
+			response.setStatus("error");
+			response.setData("");
+		}
+		return response;
+	}
 }

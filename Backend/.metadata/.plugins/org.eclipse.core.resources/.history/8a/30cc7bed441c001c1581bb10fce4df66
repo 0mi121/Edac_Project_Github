@@ -1,0 +1,24 @@
+package com.sunbeam.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sunbeam.daos.OrdersDao;
+import com.sunbeam.entities.Orders;
+import com.sunbeam.entities.User;
+
+public class OrdersServiceImpl implements OrdersService{
+
+	@Autowired
+	private OrdersDao ordersDao;
+	
+	@Override
+	public Orders save(Orders orders) {
+		return ordersDao.save(orders);
+	}
+
+	/*
+	 * @Override
+	public User save(User user) {
+		return userDao.save(user);
+	}*/
+}

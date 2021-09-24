@@ -44,11 +44,13 @@ const Login = (props) => {
           setUser(response.data);
           // store the user in localStorage
           localStorage.setItem("user", JSON.stringify(response.data.data));
-          localStorage.setItem("id", JSON.stringify(response.data.data.roleid));
+          localStorage.setItem("id", JSON.stringify(response.data.data.id));
+          localStorage.setItem("roleid", JSON.stringify(response.data.data.roleid));
           localStorage.setItem("firstname", JSON.stringify(response.data.data.first_name));
           localStorage.setItem("lastname", JSON.stringify(response.data.data.last_name));
           localStorage.setItem("phone", JSON.stringify(response.data.data.phone));
           localStorage.setItem("email", JSON.stringify(response.data.data.email));
+          
           if (response.data.data.roleid == 1) props.history.push("/add_product");
           else if (response.data.data.roleid == 2) props.history.push("/shop");
           toast("Welcome " + response.data.data.first_name +" "+ response.data.data.last_name);

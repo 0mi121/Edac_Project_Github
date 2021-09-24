@@ -1,12 +1,14 @@
 import React from 'react'
 import "../styles/Profile.css";
+import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
+    const id = JSON.parse(localStorage.getItem("id"));
     const fname = JSON.parse(localStorage.getItem("firstname"));
     const lname = JSON.parse(localStorage.getItem("lastname"));
     const email = JSON.parse(localStorage.getItem("email"));
     const phone = JSON.parse(localStorage.getItem("phone"));
-    const role = JSON.parse(localStorage.getItem("id"));
+    const role = JSON.parse(localStorage.getItem("roleid"));
     return (
       <div className="profile">
         <div class="card">
@@ -31,9 +33,9 @@ const Profile = (props) => {
               <br />
             </h4>
             <div className="d-flex justify-content-center">
-            <button type="button" class="btn btn-info btn-lg">
-              Update
-            </button>
+            <Link to={`/edit/${id}`} type="button" class="btn btn-info btn-lg">
+              Edit
+            </Link>
             </div>
           </div>
         </div>
