@@ -2,9 +2,6 @@ package com.sunbeam.services;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sunbeam.entities.Products;
@@ -23,9 +20,9 @@ public interface ProductService{
 	List<Products> findByOrderByRatingDesc();
 	Products saveProduct(Products products,MultipartFile image1,MultipartFile image2,MultipartFile image3);
 	List<Products> findProductLikeName(String name);
-	@Modifying
-	@Query("delete from products p where p.pname=:pname")
-	void deleteProductsByPname(@Param("pname") String pname);
+//	@Modifying
+//	@Query("delete from products p where p.pname=:pname")
+//	void deleteProductsByPname(@Param("pname") String pname);
 	void deleteByProductId(Integer id);
 	List<String> findDistinctCategory();
 	List<String> findDistinctBrand();

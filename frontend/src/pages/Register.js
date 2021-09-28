@@ -136,9 +136,9 @@ export default class Register extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login d-flex justify-content-center">
         <ToastContainer />
-        <form onSubmit={this.onSubmit} className="container">
+        <form onSubmit={this.onSubmit} className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
           <h1 className="text-center page-name">Register</h1>
           <br />
           <br />

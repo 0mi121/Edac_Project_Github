@@ -1,13 +1,10 @@
 package com.sunbeam.dtos;
 
-import java.time.LocalDateTime;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import com.sunbeam.entities.Address;
-import com.sunbeam.entities.Orders;
-import com.sunbeam.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -155,18 +155,22 @@ const handleDelete = async() => {
                     </button>
                     {id == 1 ? (
                       <>
-                      <button type="button" class="btn btn-warning btn-lg">
-                        Update
-                      </button>
-                      <button type="button" onClick={handleDelete} class="btn btn-danger btn-lg">
-                        Delete
-                      </button>
+                        <button type="button" class="btn btn-warning btn-lg">
+                          Update
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleDelete}
+                          class="btn btn-danger btn-lg"
+                        >
+                          Delete
+                        </button>
                       </>
-                    ) : 
-                    <button type="button" class="btn btn-success btn-lg">
+                    ) : (
+                      <button type="button" class="btn btn-success btn-lg">
                         Add to cart
                       </button>
-                    }
+                    )}
                   </div>
                 </div>
               </div>

@@ -125,11 +125,11 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="container add-product">
+    <div className="login d-flex justify-content-center">
       <ToastContainer />
-      <h1 className="page-title page-name">Add Product</h1>
 
-      <form>
+      <form className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+      <h1 className="page-title page-name">Add Product</h1>
         <div className="mb-3">
           <label htmlFor="">Product Name</label>
           &nbsp;&nbsp;

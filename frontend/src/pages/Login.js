@@ -69,9 +69,9 @@ const Login = (props) => {
   }
 
   return (
-    <div className="login">
+    <div className="login d-flex justify-content-center">
       <ToastContainer />
-      <form className="container" onSubmit={handleSubmit}>
+      <form className="col-lg-6 col-md-8 col-sm-8 col-xs-12" onSubmit={handleSubmit}>
         <h1 className="text-center text-form">Login</h1>
         <div className="form-group">
           <div className="text validate" id="emailValidate"></div>

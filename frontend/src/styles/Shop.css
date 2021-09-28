@@ -8,6 +8,10 @@
     margin-top: 0%;
 }
 
+.carousel-indicators{
+    display: none;
+}
+
 .active, .dot:hover {
     background-color: white;
 }

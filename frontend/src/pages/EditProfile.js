@@ -54,9 +54,10 @@ const EditProfile = (props) => {
     //       });
     //   }, []);
     return (
-      <div>
+      <div className="container">
+        <h1 className="text-center text-form ">Edit</h1>
         <form>
-          <div className="mb-3">
+          <div className="mb-3 ">
             <label htmlFor="">first name</label>
             &nbsp;&nbsp;
             <span className="text validate" id="firstname"></span>

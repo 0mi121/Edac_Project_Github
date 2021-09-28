@@ -24,7 +24,8 @@ const Shop = (props) => {
       <div className="row">
         <div className="">
           <h1 className="text-center page-name">Shop page</h1>
-          <div class="d-flex justify-content-between container-fluid">
+          <div class="row  container-fluid">
+            <div className="col-lg-4 col-sm-12 col-md-4  d-flex justify-content-center">
             <Dropdown className="dropdown-price">
               <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Sort By Price
@@ -42,7 +43,8 @@ const Shop = (props) => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-
+            </div>
+            <div className="col-lg-4 col-sm-12 col-md-4  d-flex justify-content-center">
             <Dropdown className="dropdown-price">
               <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Category
@@ -63,6 +65,7 @@ const Shop = (props) => {
                 })}
               </Dropdown.Menu>
             </Dropdown>
+            </div>
 
             {/* <Dropdown className="dropdown-price">
               <Dropdown.Toggle variant="light" id="dropdown-basic">
@@ -82,6 +85,7 @@ const Shop = (props) => {
               </Dropdown.Menu>
             </Dropdown> */}
 
+            <div className="col-lg-4 col-sm-12 col-md-4  d-flex justify-content-center">
             <Dropdown className="dropdown-price">
               <Dropdown.Toggle variant="light" id="dropdown-basic">
                 Sort By Rating
@@ -99,6 +103,7 @@ const Shop = (props) => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+            </div>
           </div>
           <div className=" container-fluid row shop-container">
             {products.map((product) => {

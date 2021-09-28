@@ -9,6 +9,11 @@
     box-shadow: 2px black;
     box-sizing: border-box;
     margin-bottom: 0%;
+    z-index: 1;
+  }
+
+  #navbarNav{
+    background-color: white !important;
   }
 
   .nav-link{
@@ -19,13 +24,15 @@
     vertical-align: middle;
     color: black;
   }
-  
-  .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255,255,255);
-}
+
 
 .nav-bar .dropdown-menu{
 	background-color: white;
+}
+
+.navbar-toggler-icon{
+  background-color: black !important;
+  color: white !important;
 }
 
 /* .header .btn {
@@ -52,8 +59,9 @@
     font-weight: 400;
   }
 
-
-  
+  .rounded{
+    margin-top: 10px;
+  }
   
   /*for serch box*/
   /* input[type="search"]{

@@ -2,6 +2,8 @@ import "./App.css";
 import Header from './component/Header';
 import { useState, useEffect } from 'react';
 import { url } from './common/constants';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './component/Router';
 
 function App() {
   
@@ -95,8 +97,20 @@ function App() {
 
   return (
     <div>
-   
+      <BrowserRouter>
       <Header 
+      cartItems={cartItems}
+      onRemove={onRemove} 
+      onAdd={onAdd}
+      products={products}
+      setProducts={setProducts}
+      search={search}
+      setSearch={setSearch}
+      handleSearch={handleSearch}
+      getProducts={getProducts}
+      countCartItems={cartItems.length}
+      />
+      <Router 
       cartItems={cartItems}
       onRemove={onRemove} 
       onAdd={onAdd}
@@ -104,9 +118,6 @@ function App() {
       setProducts={setProducts}
       totalcategories={totalcategories}
       setTotalcategories={setTotalcategories}
-      search={search}
-      setSearch={setSearch}
-      handleSearch={handleSearch}
       getProducts={getProducts}
       getTotalcategories={getTotalcategories}
       priceAsc={priceAsc}
@@ -116,6 +127,7 @@ function App() {
       FindByCategory={FindByCategory}
       countCartItems={cartItems.length}
       />
+      </BrowserRouter>
     </div>
   );
 }

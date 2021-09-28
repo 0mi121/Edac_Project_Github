@@ -18,10 +18,10 @@ const About = () =>{
           </p>
         </div>
 
-        <h2>Our Team</h2>
+        <h2 className="text-center">Our Team</h2>
 
-        <div class="row">
-          <div class="col-3">
+        <div className="row">
+          <div className="col-lg-3 col-md-6">
             <div className="card">
               <div className="container">
                 <h2>Omkar Annam</h2>
@@ -32,7 +32,7 @@ const About = () =>{
             </div>
           </div>
 
-          <div class="col-3">
+          <div className="col-lg-3 col-md-6">
             <div className="card">
               <div className="container">
                 <h2>Abhijeet Raut</h2>
@@ -43,7 +43,7 @@ const About = () =>{
             </div>
           </div>
 
-          <div class="col-3">
+          <div className="col-lg-3 col-md-6">
             <div className="card">
               <div className="container">
                 <h2>Akshay Nandre</h2>
@@ -53,7 +53,7 @@ const About = () =>{
               </div>
             </div>
           </div>
-          <div class="col-3">
+          <div className="col-lg-3 col-md-6">
             <div className="card">
               <div className="container">
                 <h2>Navjyot Jadhav</h2>

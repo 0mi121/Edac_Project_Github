@@ -40,11 +40,7 @@ h1{
     line-height: 48px;
 }
 
-.login .container{ 
-    width: 60%;
-}
-
-.login form{
+form{
     border: 1px solid black;
     background-color: white;
     padding: 50px;
